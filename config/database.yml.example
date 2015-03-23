@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: postgresql
+  username: postgres
+  password: 
+  host: localhost
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *defaults
+  database: travel_blog_dev
+
+test: &test
+  <<: *defaults
+  database: travel_blog_tst
+
+production:
+  <<: *defaults
+  database: travel_blog_prod
+

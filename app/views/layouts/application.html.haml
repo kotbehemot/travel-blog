@@ -1,0 +1,12 @@
+!!!
+%html{:lang => "pl"}
+  %head
+    %title= t('app_name')
+    %link{ :rel => 'shortcut icon', :href => '/favicon.ico'}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{ :charset => "UTF-8" }
+    = stylesheet_link_tag "application", :media => "all"
+    = csrf_meta_tags
+  %body 
+    = yield
+    = javascript_include_tag "application"
