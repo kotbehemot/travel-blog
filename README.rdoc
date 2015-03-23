@@ -1,28 +1,30 @@
-== README
+== Travel Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A code base for my travel blog, which I plan to launch in spring 2015. More details soon.
 
-Things you may want to cover:
+It's a simple blog tailored directly to my needs. 
+* developed with maximum ease of deploy and use in mind
+* has a nice WYSIWYG editor for editing posts, 
+* in-text images support
+* tagging and categorization capability
+* built-in statistics tools 
 
-* Ruby version
+It only supports basic authentication for one user atm, but adding a more sophisticated authentication mechanism (like Device) should be a no brainer if you need it.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You're welcome to fork the project and modify whatever you want, but keep in mind that this software:
+* won't be usefull for everybody
+* has fixed views and styles
+* requires at least basic coding skills to customize
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+
+
+== Copyright (c) 2015 Peter Barczuk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
