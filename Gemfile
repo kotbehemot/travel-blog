@@ -21,16 +21,17 @@ gem 'friendly_id'
 
 gem 'jbuilder', '~> 2.0'
 gem 'simple_form'
+gem 'ckeditor'
 gem 'acts-as-taggable-on'
 
+gem 'paperclip'
+gem 'aws-sdk'
 gem 'impressionist'
 gem 'responders', '~> 2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use puma as the app server
-gem 'puma'
 gem "rack-timeout"
 
 # Use debugger
@@ -38,9 +39,12 @@ gem "rack-timeout"
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'unicorn'
 end
 
 group :production do
   gem 'rails_12factor'
+  # Use puma as the recommended Heroku app server
+  gem 'puma'
 
 end

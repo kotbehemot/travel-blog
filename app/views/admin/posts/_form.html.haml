@@ -1,0 +1,6 @@
+= simple_form_for [:admin, @post] do |f|
+
+  = f.input :content, :as => :ckeditor
+
+  .actions
+    = f.submit 'Save'
