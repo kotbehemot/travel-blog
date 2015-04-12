@@ -8,5 +8,6 @@
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
   %body
+    = render 'shared/fb_app'
     = yield
     = javascript_include_tag "application"
