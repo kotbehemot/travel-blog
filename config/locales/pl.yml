@@ -21,3 +21,7 @@
 
 pl:
   app_name: "Muchy w Zębach"
+  app_language: pl_PL
+  head:
+    keywords: "podróże, rower, dookoła świata"
+    description: "Muchy w zębach, wiatr w sakwach, kwiaty w szprychach, czyli o naszej rowerowej podróży dookoła świata."

@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_name: "Muchy w Zębach"
+  app_name: "Travel Blog"
+  app_language: en_GB
+  head:
+    keywords: "travel, bike, self-sustained bike journey"
+    description: "Our bike trip around the world."

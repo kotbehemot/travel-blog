@@ -1,10 +1,17 @@
 !!!
-%html{:lang => "pl"}
+%html{:lang => t('app_language')}
   %head
-    %title= t('app_name')
-    %link{ :rel => 'shortcut icon', :href => '/favicon.ico'}
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %meta{ :charset => "UTF-8" }
+    %title= page_title
+    %meta{:charset => "UTF-8" }
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %link{:rel => 'shortcut icon', :href => '/favicon.png'}
+    %link{:href => url_for(:host => ENV["CANONICAL_HOST"] || request.host, :only_path => false), :rel => "canonical"}
+
+    %meta{:name => 'keywords', :content => t('head.keywords')}
+    %meta{:name => 'description', :content => t('head.description')}
+    %meta{:property => "og:title", :content => @title || t('app_name')}
+    %meta{:property => "og:description", :content => @description || t('head.description')}
+
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
   %body
