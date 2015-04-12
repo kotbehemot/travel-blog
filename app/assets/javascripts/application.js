@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require vendor/kube.min.js
+//= require vendor/moment.min.js
+//= require pages/homepage
