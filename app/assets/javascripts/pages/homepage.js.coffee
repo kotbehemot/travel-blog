@@ -6,5 +6,6 @@ $ ->
     hours = Math.floor(diff/(60*60) % (24))
     minutes = Math.floor(diff/60 % 60)
     seconds = Math.floor(diff % 60)
-    $('#homepage-timer').html "#{days} : #{hours} : #{minutes} : #{seconds}"
+    $('#homepage-timer').html "#{days} : #{("0" + hours).slice (-2)} : #{("0" + minutes).slice (-2)} : #{("0" + seconds).slice (-2)}"
   , 1000
+  
