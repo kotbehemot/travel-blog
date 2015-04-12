@@ -20,12 +20,12 @@ class Admin::PostsController < Admin::BaseController
   def create
     @post = Post.new(permitted_params)
     @post.save
-    respond_with(@post)
+    respond_with(@post, :location => admin_posts_path)
   end
 
   def update
     @post.update(permitted_params)
-    respond_with(@post)
+    respond_with(@post, :location => admin_posts_path)
   end
 
   def destroy
