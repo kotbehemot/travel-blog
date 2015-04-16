@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pl:
-  app_name: "Muchy w Zębach"
+  app_name: "Muchy w szprychach"
   app_language: pl_PL
   head:
     keywords: "podróże, rower, dookoła świata"

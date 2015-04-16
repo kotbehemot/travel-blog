@@ -3,19 +3,27 @@
     color: white
     font-size: 6em
     text-transform: uppercase
-    font-family: 'Oswald', sans-serif 
+    font-family: 'Oswald', sans-serif
     text-align: right
     margin: 0.3em
     //+transition(font-size 0.4s linear)
-  #homepage-timer
+  #homepage-timer, #homepage-timer-falstart
     font-size: 2em
     text-align: right
     margin: 2em
     color: white
+  #homepage-timer-falstart
+    text-decoration: line-through
+    color: red
+    font-weight: bold
+    line-height: 30px
+    .inner
+      color: white
+      font-weight: normal
   #bug
     color: #333
     font-size: 2em
     position: absolute
-    right: 11.8em
+    right: 15.1em
     top: 2.7em
     +rotate(28deg)
