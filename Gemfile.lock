@@ -72,6 +72,12 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    gmail (0.5.0)
+      gmail_xoauth (>= 0.3.0)
+      mail (>= 2.2.1)
+    gmail_xoauth (0.4.1)
+      oauth (>= 0.3.6)
+    gmaps4rails (2.1.2)
     haml (4.0.6)
       tilt
     hike (1.2.3)
@@ -96,12 +102,13 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mime-types (2.4.3)
+    mime-types (2.5)
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    oauth (0.4.7)
     orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
@@ -181,6 +188,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.8.2)
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
@@ -197,6 +205,8 @@ DEPENDENCIES
   font-awesome-rails
   foreigner
   friendly_id
+  gmail
+  gmaps4rails
   haml
   impressionist
   jbuilder (~> 2.0)
@@ -214,4 +224,5 @@ DEPENDENCIES
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)
+  underscore-rails
   unicorn

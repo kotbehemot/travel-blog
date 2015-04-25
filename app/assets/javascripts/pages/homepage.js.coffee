@@ -1,23 +1,37 @@
-$ ->
-  setInterval ->
-    that_moment = moment $('#homepage-timer').data('when')
-    that_moment_falstart = moment $('#homepage-timer-falstart .inner').data('when')
-    diff = that_moment.diff(moment())/1000
-    if diff < 0
-      days = -Math.floor(diff/(60*60*24))
-      $('#homepage-timer').html "#{days}. dzień podróży"
-    else
-      days = Math.floor(diff/(60*60*24))
-      hours = Math.floor(diff/(60*60) % (24))
-      minutes = Math.floor(diff/60 % 60)
-      seconds = Math.floor(diff % 60)
-      $('#homepage-timer').html "#{days} : #{("0" + hours).slice (-2)} : #{("0" + minutes).slice (-2)} : #{("0" + seconds).slice (-2)}"
-    diff_falstart = that_moment_falstart.diff(moment())/1000
-    if diff_falstart > 0
-      days = Math.floor(diff_falstart/(60*60*24))
-      hours = Math.floor(diff_falstart/(60*60) % (24))
-      minutes = Math.floor(diff_falstart/60 % 60)
-      seconds = Math.floor(diff_falstart % 60)
-      $('#homepage-timer-falstart .inner').html "#{days} : #{("0" + hours).slice (-2)} : #{("0" + minutes).slice (-2)} : #{("0" + seconds).slice (-2)}"
+class Homepage
 
-  , 1000
+  constructor: ->
+    @init_counter()
+    @init_maps()
+
+  init_counter: ->
+    that_moment = moment $('#homepage-timer').data('when')
+    diff = that_moment.diff(moment())/1000
+    days = -Math.floor(diff/(60*60*24))
+    $('#homepage-timer').html "#{days}. dzień podróży"
+
+  init_maps: ->
+    handler = Gmaps.build('Google')
+    handler.buildMap {
+      provider: {
+        disableDefaultUI: false
+        scrollwheel: false
+      }
+      internal: id: 'homepage-map'
+    }, ->
+      locations = $('#homepage-map').data('locations')
+      map_locations = []
+      for location in locations
+        map_locations.push {
+          'lat': location.lat
+          'lng': location.lon
+          'infowindow': location.date
+        }
+
+      markers = handler.addMarkers(map_locations)
+      handler.bounds.extendWith(markers)
+      handler.fitMapToBounds()
+
+$ ->
+  new Homepage if $('#homepage').length > 0
+

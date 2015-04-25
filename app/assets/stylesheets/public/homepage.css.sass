@@ -1,26 +1,41 @@
 #homepage
-  h1
-    color: white
-    font-size: 6em
-    text-transform: uppercase
-    font-family: 'Oswald', sans-serif
-    text-align: right
-    margin: 0.3em
-    text-shadow: 0 0 2px #ccf
+  height: 100%
+  #homepage-title
+    background-image: url(/images/bg/balaton.jpg)
+    h1
+      color: white
+      font-size: 6em
+      text-transform: uppercase
+      font-family: 'Oswald', sans-serif
+      text-align: right
+      margin: 0.3em
+      text-shadow: 0 0 2px #ccf
     //+transition(font-size 0.4s linear)
-  #homepage-timer
-    position: fixed
-    bottom: 0
-    right: 0
-    font-size: 2em
-    text-align: right
-    margin: 2em
-    color: white
-    text-shadow: 0 0 1px #ccf
-  #bug
-    color: #111
-    font-size: 2em
-    position: absolute
-    right: 15.1em
-    top: 2.7em
-    +rotate(28deg)
+    #homepage-timer
+      position: absolute
+      bottom: 0
+      right: 0
+      font-size: 2em
+      text-align: right
+      margin: 2em
+      color: white
+      text-shadow: 0 0 1px #ccf
+    #bug
+      color: #111
+      font-size: 2em
+      position: absolute
+      right: 15.1em
+      top: 2.7em
+      +rotate(28deg)
+    #where-are-we
+      position: absolute
+      bottom: 20px
+      width: 100%
+      text-align: center
+      color: white
+      text-shadow: 0 0 1px #ccf
+      font-size: 1em
+
+  #homepage-map
+    height: 400px
+    width: 100%

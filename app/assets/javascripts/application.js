@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require underscore
 //= require vendor/kube.min.js
 //= require vendor/moment.min.js
+//= require pages/paralax
 //= require pages/homepage
+//= require gmaps/google

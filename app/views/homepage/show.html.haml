@@ -1,9 +1,16 @@
 #homepage
-  %h1
-    = t('app_name')
-  %span#bug.fa.fa-bug
-  #homepage-timer-falstart
-    .inner{'data-when' => '2015-04-16 21:26', :title => 'Falstart?'}
-  #homepage-timer{'data-when' => '2015-04-21 21:26'}
+  #homepage-title.fullscreen.background.parallax{'data-img-width' => "1600", 'data-img-height' => "1063"}
+    .content-a
+      %h1
+        = t('app_name')
+      %span#bug.fa.fa-bug
+      #homepage-timer{'data-when' => '2015-04-21 21:26'}
+      #where-are-we
+        Gdzie jesteśmy?
+        %br
+        %span.fa.fa-angle-double-down
+  .not-fullscren.parallax
+    .content-a
+      #homepage-map{'data-locations' => @locations.to_json}
 
   =# render 'shared/fb_like_page'
