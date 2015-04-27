@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+homepage_odo = HomepageSetting.where(:key => 'odometer').first_or_initialize
+homepage_odo.setting_value = 0
+homepage_odo.save

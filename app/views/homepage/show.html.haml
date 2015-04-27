@@ -4,13 +4,20 @@
       %h1
         = t('app_name')
       %span#bug.fa.fa-bug
-      #homepage-timer{'data-when' => '2015-04-21 21:26'}
-      #where-are-we
-        Gdzie jesteśmy?
-        %br
-        %span.fa.fa-angle-double-down
-  .not-fullscren.parallax
+    #scroll-pls
+      %span.fa.fa-angle-double-down
+  #homepage-main-info.not-fullscren.parallax.box
     .content-a
-      #homepage-map{'data-locations' => @locations.to_json}
+      %h2 Muchy w zębach, wiatr w sakwach, kwiaty w szprychach
+      %h3 czyli blog o naszej rowerowej podróży
+      #homepage-data
+        #homepage-timer.data-section{'data-when' => '2015-04-21 21:26', :title => "Wyruszyliśmy z Warszawy 21 kwietnia 2015 roku"}
+        #homepage-odometer.data-section{'data-km' => HomepageSetting.value(:odometer), 'data-when' => HomepageSetting.by_slug(:odometer).updated_at.strftime("%Y-%m-%d %H:%M"), :title => 'Wygląda na to, że poruszamy się nawet, kiedy śpimy!'}
+    #scroll-pls
+      .info Gdzie jesteśmy?
+      %span.fa.fa-angle-double-down
+  #homepage-map{'data-locations' => @locations.to_json}
+  #homepage-footer.parallax
+    %h3 © 2015 Muchy w szprychach
 
   =# render 'shared/fb_like_page'
