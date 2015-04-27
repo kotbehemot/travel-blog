@@ -202,11 +202,11 @@ DEPENDENCIES
   aws-sdk
   ckeditor
   coffee-rails (~> 4.0.0)
-  coffee-script-source (~> 1.8.0)
   font-awesome-rails
   foreigner
   friendly_id
   gmail
+  gmail_xoauth
   gmaps4rails
   haml
   impressionist

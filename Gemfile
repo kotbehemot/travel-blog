@@ -11,7 +11,6 @@ gem 'foreigner'
 gem 'haml'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
-gem "coffee-script-source", "~> 1.8.0"
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 gem 'underscore-rails'
@@ -31,7 +30,7 @@ gem 'aws-sdk'
 gem 'impressionist'
 gem 'responders', '~> 2.0'
 
-
+gem 'gmail_xoauth'
 gem 'gmail'
 gem 'gmaps4rails'
 
