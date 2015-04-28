@@ -30,7 +30,7 @@ class Homepage
     handler = Gmaps.build('Google')
     handler.buildMap {
       provider: {
-        mapTypeId: google.maps.MapTypeId.HYBRID
+        mapTypeId: google.maps.MapTypeId.TERRAIN
         zoomControlOptions:
           style: google.maps.ZoomControlStyle.LARGE
         disableDefaultUI: false
