@@ -1,0 +1,5 @@
+%ul#admin-places.blocks-5
+  - @places.each do |place|
+    %li= link_to place.name, [:admin, place], :class => 'btn btn-big'
+
+= link_to 'New Place', new_admin_place_path, :class => 'btn btn-blue'

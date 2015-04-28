@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::BaseController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.order('created_at DESC')
     respond_with(@posts)
   end
 
@@ -20,17 +20,17 @@ class Admin::PostsController < Admin::BaseController
   def create
     @post = Post.new(permitted_params)
     @post.save
-    respond_with(@post, :location => admin_posts_path)
+    respond_with(@post, :action => :show, :location => admin_posts_path)
   end
 
   def update
     @post.update(permitted_params)
-    respond_with(@post, :location => admin_posts_path)
+    respond_with(@post, :action => :show, :location => admin_posts_path)
   end
 
   def destroy
     @post.destroy
-    respond_with(@post)
+    respond_with(@post, :action => :show, :location => admin_posts_path)
   end
 
   private
@@ -39,6 +39,6 @@ class Admin::PostsController < Admin::BaseController
     end
 
     def permitted_params
-      params.require(:post).permit(:title, :content, :summary, :published, :publication_date, :published_by, :place_id, :tag_list => [])
+      params.require(:post).permit(:title, :content, :summary, :published, :publication_date, :published_by, :place_id, :header_image, :footer_image, :tag_list => [])
     end
 end

@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @place] do |f|
+
+  %fieldset
+    %legend Edit place
+    = f.input :name, input_html: { class: 'width-100' }
+    = f.input :description, :as => :text
+
+  .actions
+    = f.submit 'Save', :class => 'btn btn-big btn-blue'

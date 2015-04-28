@@ -1,8 +1,25 @@
-= simple_form_for [:admin, @post] do |f|
+= simple_form_for [:admin, @post], html: {class: 'forms'} do |f|
 
-  = f.input :title
-  = f.input :summary, :as => :text
-  = f.input :content, :as => :ckeditor
+  %fieldset
+    %legend Content
+    = f.input :title, input_html: { class: 'width-100' }
+    = f.input :summary, :as => :text
+    = f.input :content, :as => :ckeditor, :input_html => {:rows => 20}
 
-  .actions
-    = f.submit 'Save'
+  %fieldset
+    %legend Images
+    - if @post.header_image.file?
+      .input-image-preview= image_tag @post.header_image.url(:thumb)
+    = f.input :header_image
+    - if @post.footer_image.file?
+      .input-image-preview= image_tag @post.footer_image.url(:thumb)
+    = f.input :footer_image
+
+  %fieldset
+    %legend Associations
+    = f.input :place_id, :collection => Place.order(:name), :prompt => 'Select place'
+
+  %fieldset
+    %legend Publish and save
+    = f.input :published
+    = f.submit 'Save', :class => 'btn btn-big btn-blue  '

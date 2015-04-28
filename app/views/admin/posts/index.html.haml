@@ -2,17 +2,24 @@
   %thead
     %tr
       %th Title
+      %th Slug
       %th Summary
-      %th Times Viewed
+      %th Views
       %th.actions &nbsp;
   %tbody
     - @posts.each do |post|
       %tr
         %td= post.title
+        %td= post.slug
         %td= post.summary
-        %td= post.impressions_count
         %td
-          = link_to 'Edit', [:admin, post]
-          = link_to 'View', post
+          - if post.published?
+            %span.fa.fa-eye
+          - else
+            %span.fa.fa-eye-slash
+          = post.impressions_count
+        %td
+          = link_to 'Edit', [:admin, post], :class => 'btn btn-smaller'
+          = link_to 'View', post, :class => 'btn btn-smaller'
 
-= link_to 'New Post', new_admin_post_path
+= link_to 'New Post', new_admin_post_path, :class => 'btn btn-blue'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427222005) do
+ActiveRecord::Schema.define(version: 20150428174427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,17 +84,25 @@ ActiveRecord::Schema.define(version: 20150427222005) do
   add_index "places", ["slug"], name: "index_places_on_slug", unique: true, using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",                                          null: false
-    t.string   "summary",           limit: 2048
+    t.string   "title",                                                  null: false
+    t.string   "summary",                   limit: 2048
     t.text     "content"
     t.integer  "place_id"
-    t.integer  "impressions_count",              default: 0,     null: false
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "slug",                                           null: false
-    t.boolean  "published",                      default: false, null: false
+    t.integer  "impressions_count",                      default: 0,     null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.string   "slug",                                                   null: false
+    t.boolean  "published",                              default: false, null: false
     t.string   "published_by"
     t.date     "publication_date"
+    t.string   "header_image_file_name"
+    t.string   "header_image_content_type"
+    t.integer  "header_image_file_size"
+    t.datetime "header_image_updated_at"
+    t.string   "footer_image_file_name"
+    t.string   "footer_image_content_type"
+    t.integer  "footer_image_file_size"
+    t.datetime "footer_image_updated_at"
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree

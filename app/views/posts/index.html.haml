@@ -1,0 +1,5 @@
+#posts-list
+  - @posts.each do |post|
+    .post-container{:id => "post-#{post.id}"}
+      = post.title
+      = post.summary

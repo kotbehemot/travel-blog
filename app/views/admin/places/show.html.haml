@@ -1,0 +1,4 @@
+= render 'form'
+
+= link_to 'Destroy', [:admin, @place], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-red'
+= link_to 'Back', admin_places_path, :class => 'btn'

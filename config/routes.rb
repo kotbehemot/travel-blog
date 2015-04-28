@@ -5,14 +5,17 @@ Rails.application.routes.draw do
 
   root 'homepage#show'
 
-  resources :posts
-  resources :tags
-  resources :places
-
   namespace :admin do
     resources :posts, :except => [:edit]
-    resources :tags, :except => [:edit]
+    #resources :tags, :except => [:edit]
     resources :places, :except => [:edit]
     root 'posts#index'
   end
+
+  get 'm/:place' => 'posts#index'
+  get 't/:tag' => 'posts#index'
+  get 'm/:place/:id' => 'posts#show'
+  get 't/:tag/:id' => 'posts#show'
+  get 'latest' => 'posts#index'
+  get ':id' => 'posts#show', :as => :post
 end
