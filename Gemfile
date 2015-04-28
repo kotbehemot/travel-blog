@@ -26,7 +26,7 @@ gem 'ckeditor'
 gem 'acts-as-taggable-on'
 
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 'impressionist'
 gem 'responders', '~> 2.0'
 
