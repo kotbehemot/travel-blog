@@ -8,7 +8,7 @@ class Homepage
     setInterval =>
       @set_odo()
     , 1000
-    @init_maps()
+    @init_maps() unless $('#homepage-map').hasClass('no-init')
 
   set_counter: ->
     that_moment = moment $('#homepage-timer').data('when')
@@ -18,11 +18,8 @@ class Homepage
 
   set_odo: ->
     km = $('#homepage-odometer').data('km')
-    console.log km
     odo_moment = moment $('#homepage-odometer').data('when')
-    console.log odo_moment
     diff = moment().diff(odo_moment)/1000
-    console.log diff
     proper_km = +km + diff*DEFAULT_DAILY_DISTANCE/(24*60*60)
     $('#homepage-odometer').html "Przejechaliśmy #{Math.round(1000*proper_km)} metrów"
 
@@ -55,6 +52,7 @@ class Homepage
       markers = handler.addMarkers(map_locations)
       handler.bounds.extendWith(markers)
       handler.fitMapToBounds()
+      $('#homepage-map').removeClass('init')
 
 $ ->
   new Homepage if $('#homepage').length > 0

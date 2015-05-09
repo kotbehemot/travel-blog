@@ -1,60 +1,25 @@
 #homepage
   > div
     position: relative
-  height: 100%
-  color: #2a2a2a
-  h2
-    text-transform: uppercase
-    color: #2a2a2a
-    font-size: 2em
-    margin: 0
-  h3
-    color: #2a2a2a
-    font-size: 1em
-  #scroll-pls
-    position: absolute
-    bottom: 10px
     width: 100%
-    text-align: center
-    padding-top: 2em
-    .info
-      font-size: 1em
-    .fa
-      font-size: 3em
-  .box
-    padding: 5em 0 10em 0
+  height: 100%
+
   #homepage-title
     background-image: url(/images/bg/balaton.jpg)
-    h1
-      color: white
-      font-size: 6em
-      text-transform: uppercase
-      font-family: 'Oswald', sans-serif
-      text-align: right
-      margin: 0.3em
-      text-shadow: 0 0 2px #ccf
-    //+transition(font-size 0.4s linear)
-    #bug
-      color: #111
-      font-size: 2em
-      position: absolute
-      right: 15.1em
-      top: 2.7em
-      +rotate(28deg)
-    #scroll-pls
+    .scroll-pls
       color: white
       text-shadow: 0 0 1px #ccf
 
   #homepage-main-info
     #homepage-data
-      margin-top: 2em
+      margin: 2em 0.5em 0 0.5em
       .data-section
-        font-size: 1.6em
-        line-height: 2em
-
-  #homepage-footer
-    padding: 5em 0 2em 0
+        font-size: 1.4em
+        line-height: 1.8em
 
   #homepage-map
-    height: 400px
-    width: 100%
+    height: 22em
+    &.init
+      background-color: #cacaca
+      line-height: 22em
+      color: #fff

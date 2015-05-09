@@ -1,11 +1,18 @@
 /* background setup
 
+.parallax
+  overflow-x: hidden
+  overflow-y: auto
+
 .background
+  background-attachment: fixed
   background-repeat: no-repeat
   /* custom background-position
   background-position: 50% 50%
   /* ie8- graceful degradation
   background-position: 50% 50% \9  !important
+  transform: translateZ(-1px)
+
 
 /* fullscreen setup
 
@@ -13,32 +20,22 @@ html, body
   /* give this to all tags from html to .fullscreen
   height: 100%
 
-.fullscreen, .content-a
+.fullscreen, .content
   width: 100%
   min-height: 100%
 
 .not-fullscreen, .fullscreen.not-overflow
   height: 100%
-  overflow: hidden
   .content-a
     height: 100%
-    overflow: hidden
 
 /* content centering styles
 
-.content-a
+.content
   display: table
 
-.content-b
+.centered-content
   display: table-cell
   position: relative
   vertical-align: middle
   text-align: center
-
-/* visual styles
-
-section
-  background: #9ed100
-
-.not-fullscreen
-  height: 50%

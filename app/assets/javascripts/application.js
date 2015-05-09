@@ -16,6 +16,6 @@
 //= require underscore
 //= require vendor/kube.min.js
 //= require vendor/moment.min.js
-//= require pages/paralax
+//= require parallax
 //= require pages/homepage
 //= require gmaps/google

@@ -1,4 +1,14 @@
 ### detect touch ###
+isMobile = ->
+  try
+    document.createEvent 'TouchEvent'
+    return true
+  catch e
+    return false
+  return
+
+if isMobile()
+  document.documentElement.className = document.documentElement.className + ' touch'
 
 ### fix vertical when not overflow
 call fullscreenFix() if .fullscreen content changes
@@ -78,22 +88,16 @@ parallaxPosition = (e) ->
       orizontalPosition = path.attr('data-oriz-pos')
       orizontalPosition = if orizontalPosition then orizontalPosition else '50%'
       $(this).css 'background-position', orizontalPosition + ' ' + value + 'px'
-    return
-  return
-
-if 'ontouchstart' in window
-  document.documentElement.className = document.documentElement.className + ' touch'
-if !$('html').hasClass('touch')
-  ### background fix ###
-  $('.parallax').css 'background-attachment', 'fixed'
 
 $(window).resize fullscreenFix
 fullscreenFix()
 $(window).resize backgroundResize
 $(window).focus backgroundResize
 backgroundResize()
+
 if !$('html').hasClass('touch')
   $(window).resize parallaxPosition
   #$(window).focus(parallaxPosition);
   $(window).scroll parallaxPosition
   parallaxPosition()
+

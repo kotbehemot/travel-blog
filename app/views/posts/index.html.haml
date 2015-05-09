@@ -1,5 +1,17 @@
 #posts-list
+  #post-list-title.fullscreen.background.parallax{'data-img-width' => "1600", 'data-img-height' => "1063", 'data-diff' => 400, :style => "background-image: url('#{@posts.first.header_image.url}');"}
+    .content-a
+      %h1= t('app_name')
+      %h2= @title
+    .scroll-pls
+      %span.fa.fa-angle-double-down
+  .info.not-fullscren= @description
   - @posts.each do |post|
-    .post-container{:id => "post-#{post.id}"}
-      = post.title
-      = post.summary
+    .post-container.not-fullscren.parallax{:id => "post-#{post.id}"}
+      = link_to post do
+        .post-title= post.title
+        .post-summary= post.summary
+        .post-thumbnail
+          = image_tag post.header_image.url(:thumb)
+
+  = render 'shared/footer'

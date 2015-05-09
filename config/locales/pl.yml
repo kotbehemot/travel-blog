@@ -25,3 +25,9 @@ pl:
   head:
     keywords: "podróże, rower, dookoła świata"
     description: "Muchy w zębach, wiatr w sakwach, kwiaty w szprychach, czyli o naszej rowerowej podróży dookoła świata."
+  posts:
+    latest:
+      title: Co nowego?
+      description: Po prostu najświeższe wpisy.
+      bad_tag: Nie znaleziono wpisów w kategorii '%{tag}'. Wyświetlam wszystkie najnowsze wpisy.
+      tagged_with: Wpisy z kategorii '%{tag}'.

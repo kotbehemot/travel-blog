@@ -1,11 +1,59 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext)
-@import paralax
+@import variables
+@import parallax
 @import homepage
+@import posts
 
 body
   font-family: 'Oswald', sans-serif
-  font-size: 13px
-  line-height: 18px
-  color: #333
+  font-size: 20px
+  line-height: 1.35em
+  color: #2a2a2a
   margin: 0
   text-align: center
+
+  @media (max-width: $break-large)
+    font-size: 18px
+  @media (max-width: $break-medium)
+    font-size: 16px
+  @media (max-width: $break-small)
+    font-size: 14px
+
+  h1
+    color: white
+    font-size: 4em
+    text-transform: uppercase
+    font-family: 'Oswald', sans-serif
+    text-align: right
+    margin: 0.5em
+    text-shadow: 0 0 2px #88a
+  h2
+    text-transform: uppercase
+    color: #2a2a2a
+    font-size: 1.6em
+    margin: 0 0.5em
+  h3
+    color: #2a2a2a
+    font-size: 1em
+    margin: 0 0.5em
+  .scroll-pls
+    position: absolute
+    bottom: 10px
+    width: 100%
+    text-align: center
+    padding-top: 2em
+    .info
+      font-size: 1em
+    .fa
+      font-size: 2.3em
+  .background
+    .scroll-pls
+      color: #fff
+      text-shadow: 0 0 1px #88a
+  .box
+    padding: 4em 0 8em 0
+    width: 100%
+    overflow: hidden
+
+  .footer
+    padding: 4em 0 2em 0
