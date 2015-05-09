@@ -17,5 +17,6 @@
 //= require vendor/kube.min.js
 //= require vendor/moment.min.js
 //= require parallax
+//= require public
 //= require pages/homepage
 //= require gmaps/google
