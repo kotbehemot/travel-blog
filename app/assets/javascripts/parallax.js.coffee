@@ -5,7 +5,6 @@ isMobile = ->
     return true
   catch e
     return false
-  return
 
 if isMobile()
   document.documentElement.className = document.documentElement.className + ' touch'
