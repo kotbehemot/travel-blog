@@ -1,2 +1,20 @@
-= @post.title
-= @post.content.html_safe
+#post-content
+  #main-post-image.fullscreen.background.parallax{:style => "background-image:url(\"#{@post.header_image.url}\");", 'data-img-width' => @post.header_image_width, 'data-img-height' => @post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @post.inverted_title}"}
+    .content
+      %h1= @post.title
+
+  = @post.parsed_content
+
+  - if @post.footer_image_defined?
+    #footer-post-image.fullscreen.background.parallax{:style => "background-image:url(\"#{@post.footer_image.url}\");", 'data-img-width' => @post.footer_image_width, 'data-img-height' => @post.footer_image_height, 'data-diff' => 200}
+  #post-actions
+    =# render 'shared/fb_like_page'
+    = link_to '#' do
+      %span.fa.fa-arrow-up
+      = t('posts.show.top')
+    = link_to root_path do
+      %span.fa.fa-home
+      = t('posts.show.home')
+
+
+  = render 'shared/footer'

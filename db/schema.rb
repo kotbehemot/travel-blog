@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428174427) do
+ActiveRecord::Schema.define(version: 20150510001205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,11 @@ ActiveRecord::Schema.define(version: 20150428174427) do
     t.string   "footer_image_content_type"
     t.integer  "footer_image_file_size"
     t.datetime "footer_image_updated_at"
+    t.integer  "header_image_width"
+    t.integer  "header_image_height"
+    t.integer  "footer_image_width"
+    t.integer  "footer_image_height"
+    t.boolean  "inverted_title",                         default: true,  null: false
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree

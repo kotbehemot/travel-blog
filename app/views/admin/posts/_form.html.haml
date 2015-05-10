@@ -14,6 +14,8 @@
     - if @post.footer_image.file?
       .input-image-preview= image_tag @post.footer_image.url(:thumb)
     = f.input :footer_image
+    %hr
+    = f.input :inverted_title, :label => 'Check for black title, uncheck for white one'
 
   %fieldset
     %legend Associations

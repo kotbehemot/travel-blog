@@ -7,9 +7,13 @@ body
   font-family: Helvetica Neue, Helvetica, Liberation Sans, Arial, sans-serif
   font-size: 20px
   line-height: 1.35em
-  color: #2a2a2a
+  color: $text-color
   margin: 0
   text-align: center
+
+  a
+    color: $text-color
+    text-decoration: none
 
   @media (max-width: $break-large)
     font-size: 18px
@@ -17,11 +21,11 @@ body
     font-size: 16px
   @media (max-width: $break-small)
     font-size: 14px
-  @media (max-width: $break-micro)
+  @media (max-width: $break-tiny)
     font-size: 12px
 
   h1
-    color: white
+    color: $inverted-text-color
     font-size: 3.8em
     text-transform: uppercase
     text-align: right
@@ -29,11 +33,11 @@ body
     text-shadow: 0 0 2px #88a
   h2
     text-transform: uppercase
-    color: #2a2a2a
+    color: $text-color
     font-size: 1.6em
     margin: 0 0.5em
   h3
-    color: #2a2a2a
+    color: $text-color
     font-size: 1em
     margin: 0 0.5em
 
@@ -51,7 +55,7 @@ body
       display: block
       position: absolute
       bottom: 0
-      color: #000
+      color: $text-color
       width: 100%
       .fa
         display: block
@@ -79,7 +83,8 @@ body
   .box
     padding: 4em 0 8em 0
     width: 100%
-    overflow: hidden
+    overflow: inherit
 
   .footer
     padding: 4em 0 2em 0
+    color: #2a2a2a

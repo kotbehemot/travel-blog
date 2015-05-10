@@ -2,14 +2,14 @@
   > div
     position: relative
   height: 100%
-  color: #2a2a2a
+  color: $text-color
   #post-list-title
     margin-bottom: 1em
     h2
       text-shadow: 0 0 2px #88a
       font-size: 2em
       width: 100%
-      color: #fff
+      color: $inverted-text-color
       position: absolute
       bottom: 2em
       text-align: center
@@ -54,3 +54,32 @@
         top: 30px
         width: 118px
         height: 100px
+
+#post-content
+  height: 100%
+  width: 100%
+  > div, > p
+    position: relative
+  #main-post-image
+    &.inverted
+      h1
+        color: $text-color
+        text-shadow: 0 0 2px #88a
+  > p
+    display: block
+    padding-top: 2em
+    width: 70%
+    margin: auto
+    overflow: inherit
+    text-align: justify
+    @media (max-width: $break-medium)
+      width: 80%
+    @media (max-width: $break-small)
+      width: 90%
+    @media (max-width: $break-tiny)
+      width: 100%
+
+  #post-actions
+    margin: 3em
+    a
+      margin: 1em

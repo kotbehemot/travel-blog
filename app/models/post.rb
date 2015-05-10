@@ -7,6 +7,9 @@ class Post < ActiveRecord::Base
   has_attached_file :footer_image,
     :styles => { :thumb => '118x100#', :medium => '400x300#', :original => '1600x1600>' }
 
+  after_header_image_post_process :save_header_image_dimensions
+  after_footer_image_post_process :save_footer_image_dimensions
+
   validates_attachment_presence :header_image
   validates_attachment_content_type :header_image, :footer_image, :content_type => /\Aimage/
 
@@ -14,7 +17,35 @@ class Post < ActiveRecord::Base
 
   is_impressionable
 
+
+  def header_image_defined?
+    header_image.file? && header_image_width && header_image_height
+  end
+
+  def footer_image_defined?
+    header_image.file? && footer_image_width && footer_image_height
+  end
+
   def should_generate_new_friendly_id?
     title_changed? || super
+  end
+
+  def parsed_content
+    img_regexp = /<img[^>]*src="([^"]+)[^>]*style="[^"]*width:[ ]{0,1}([0-9]+)px;[^"]*height:[ ]{0,1}([0-9]+)px;[^"]*"[^>]*>/m
+    new_content = content.gsub(img_regexp, '<div class=\'fullscreen background parallax\' style=\'width:100%; background-image:url("\1");\' data-img-width=\2 data-img-height=\3 data-diff=200></div>')
+    new_content.html_safe
+  end
+
+  protected
+  def save_header_image_dimensions
+    geo = Paperclip::Geometry.from_file(header_image.queued_for_write[:original])
+    self.header_image_width = geo.width
+    self.header_image_height = geo.height
+  end
+
+  def save_footer_image_dimensions
+    geo = Paperclip::Geometry.from_file(footer_image.queued_for_write[:original])
+    self.footer_image_width = geo.width
+    self.footer_image_height = geo.height
   end
 end
