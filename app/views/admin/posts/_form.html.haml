@@ -7,7 +7,7 @@
     = f.input :content, :as => :ckeditor, :input_html => {:rows => 20}
 
   %fieldset
-    %legend Images
+    %legend Multimedia
     - if @post.header_image.file?
       .input-image-preview= image_tag @post.header_image.url(:thumb)
     = f.input :header_image
@@ -15,6 +15,7 @@
       .input-image-preview= image_tag @post.footer_image.url(:thumb)
     = f.input :footer_image
     %hr
+    = f.input :video_link, :label => 'Link to embed YT video, e.g. "https://www.youtube.com/embed/Cj0s8jCM77M"', input_html: { class: 'width-100' }
     = f.input :inverted_title, :label => 'Check for black title, uncheck for white one'
 
   %fieldset

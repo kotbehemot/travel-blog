@@ -60,11 +60,6 @@
   width: 100%
   > div, > p
     position: relative
-  #main-post-image
-    &.inverted
-      h1
-        color: $text-color
-        text-shadow: 0 0 2px #88a
   > p
     display: block
     padding-top: 2em
@@ -79,11 +74,73 @@
     @media (max-width: $break-tiny)
       width: 100%
 
+  #post-video
+    position: relative
+    width: 100%
+    height: 0
+    padding-bottom: 60%
+    .yt-video
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+
+
   #post-actions
     margin: 3em
     a
       margin: 1em
 
-  .scroll-pls
-    &.inverted
+.post-box
+  overflow: hidden
+  &.inverted
+    h1, h2, h3
       color: $text-color
+      text-shadow: 0 0 2px #bbb
+      a
+        color: $text-color
+        text-shadow: 0 0 2px #bbb
+        &:hover
+          color: $text-color
+    .scroll-pls
+      color: $text-color
+  a
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    h2
+      color: $inverted-text-color
+      font-size: 3em
+      text-transform: uppercase
+      text-align: center
+      margin: 1em 2em
+      letter-spacing: -2px
+      a
+        color: $inverted-text-color
+        text-decoration: none
+        &:hover
+          color: $inverted-text-color
+    .post-summary
+      position: absolute
+      bottom: -30em
+      left: 0
+      right: 0
+      background-color: rgba(255,255,255, 0.5)
+      color: $text-color
+      text-align: left
+      +transition(bottom 2s ease)
+      padding: 2em 8em
+      @media (max-width: $break-medium)
+        padding: 2em 5em
+      @media (max-width: $break-small)
+        padding: 1em 1em
+      @media (max-width: $break-tiny)
+        padding: 1em 0
+  &:hover a .post-summary
+    bottom: 0
+
+

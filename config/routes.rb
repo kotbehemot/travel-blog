@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   get 't/:tag' => 'posts#index'
   get 'm/:place/:id' => 'posts#show'
   get 't/:tag/:id' => 'posts#show'
-  get 'latest' => 'posts#index'
+  get 'latest' => 'posts#index', :as => :latest_posts
   get ':id' => 'posts#show', :as => :post
 end

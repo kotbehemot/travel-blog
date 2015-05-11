@@ -1,20 +1,29 @@
 #homepage
   #homepage-title.fullscreen.background.parallax{'data-img-width' => "1600", 'data-img-height' => "1063", 'data-diff' => 200}
-    .content
-      %h1
-        = t('app_name')
+    %h1
+      = t('app_name')
     .scroll-pls
       %span.fa.fa-angle-double-down
-  #homepage-main-info.not-fullscren.parallax.box
-    .content
-      %h2 Muchy w zębach, wiatr w sakwach, kwiaty w szprychach
-      %h3 czyli blog o naszej rowerowej podróży
-      #homepage-data
-        #homepage-timer.data-section{'data-when' => '2015-04-21 21:26', :title => "Wyruszyliśmy z Warszawy 21 kwietnia 2015 roku"}
-        #homepage-odometer.data-section{'data-km' => HomepageSetting.value(:odometer), 'data-when' => HomepageSetting.by_slug(:odometer).updated_at.strftime("%Y-%m-%d %H:%M"), :title => 'Wygląda na to, że poruszamy się nawet, kiedy śpimy!'}
+  #homepage-info.not-fullscren.parallax.box
+    %h2 Muchy w zębach, wiatr w sakwach, kwiaty w szprychach
+    %h3 czyli blog o naszej rowerowej podróży
+    .scroll-pls
+      .info Co u nas?
+      %span.fa.fa-angle-double-down
+  - if @latest_post
+    #homepage-latest.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@latest_post.header_image.url}\");", 'data-img-width' => @latest_post.header_image_width, 'data-img-height' => @latest_post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @latest_post.inverted_title}"}
+      = link_to post_path(@latest_post) do
+        %h2= @latest_post.title
+        .post-summary= @latest_post.summary
+  #homepage-latest-posts
+    = link_to 'Zobacz nasze poprzednie wpisy >>', latest_posts_path
+  #homepage-travel-data
+    #homepage-timer.data-section{'data-when' => '2015-04-21 21:26', :title => "Wyruszyliśmy z Warszawy 21 kwietnia 2015 roku"}
+    #homepage-odometer.data-section{'data-km' => HomepageSetting.value(:odometer), 'data-when' => HomepageSetting.by_slug(:odometer).updated_at.strftime("%Y-%m-%d %H:%M"), :title => 'Wygląda na to, że poruszamy się nawet, kiedy śpimy!'}
     .scroll-pls
       .info Gdzie jesteśmy?
       %span.fa.fa-angle-double-down
   #homepage-map.init{'data-locations' => @locations.to_json, :class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
+
   = render 'shared/footer'
   =# render 'shared/fb_like_page'

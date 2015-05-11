@@ -39,6 +39,6 @@ class Admin::PostsController < Admin::BaseController
     end
 
     def permitted_params
-      params.require(:post).permit(:title, :content, :summary, :published, :publication_date, :published_by, :place_id, :header_image, :footer_image, :tag_list => [])
+      params.require(:post).permit(:title, :content, :summary, :published, :publication_date, :published_by, :place_id, :header_image, :footer_image, :video_link, :inverted_title, :tag_list => [])
     end
 end
