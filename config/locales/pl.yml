@@ -29,5 +29,8 @@ pl:
     latest:
       title: Co nowego?
       description: Po prostu najświeższe wpisy.
-      bad_tag: Nie znaleziono wpisów w kategorii '%{tag}'. Wyświetlam wszystkie najnowsze wpisy.
-      tagged_with: Wpisy z kategorii '%{tag}'.
+      bad_tag: "Nie znaleziono wpisów w kategorii '%{tag}'. Wyświetlam wszystkie najnowsze wpisy."
+      tagged_with: "Wpisy z kategorii '%{tag}'."
+    show:
+      top: Do góry
+      home: Strona główna
