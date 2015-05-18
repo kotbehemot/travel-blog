@@ -5,10 +5,10 @@
     .scroll-pls
       %span.fa.fa-angle-double-down
   #homepage-info.not-fullscren.parallax.box
-    %h2 Muchy w zębach, wiatr w sakwach, kwiaty w szprychach
-    %h3 czyli blog o naszej rowerowej podróży
+    %h2= t('homepage.subtitle')
+    %h3= t('homepage.subtitle_desc')
     .scroll-pls
-      .info Co u nas?
+      .info= t('homepage.whats_up')
       %span.fa.fa-angle-double-down
   - if @latest_post
     #homepage-latest.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@latest_post.header_image.url}\");", 'data-img-width' => @latest_post.header_image_width, 'data-img-height' => @latest_post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @latest_post.inverted_title}"}
@@ -16,12 +16,12 @@
         %h2= @latest_post.title
         .post-summary= @latest_post.summary
   #homepage-latest-posts
-    = link_to 'Zobacz nasze poprzednie wpisy >>', latest_posts_path
+    = link_to t('homepage.latest_posts'), latest_posts_path
   #homepage-travel-data
-    #homepage-timer.data-section{'data-when' => '2015-04-21 21:26', :title => "Wyruszyliśmy z Warszawy 21 kwietnia 2015 roku"}
-    #homepage-odometer.data-section{'data-km' => HomepageSetting.value(:odometer), 'data-when' => HomepageSetting.by_slug(:odometer).updated_at.strftime("%Y-%m-%d %H:%M"), :title => 'Wygląda na to, że poruszamy się nawet, kiedy śpimy!'}
+    #homepage-timer.data-section{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date'), 'data-template' => t('homepage.timer_template')}
+    #homepage-odometer.data-section{'data-km' => HomepageSetting.value(:odometer), 'data-when' => HomepageSetting.by_slug(:odometer).updated_at.strftime("%Y-%m-%d %H:%M"), :title => t('homepage.counter_disclaimer'), 'data-template' => t('homepage.counter_template')}
     .scroll-pls
-      .info Gdzie jesteśmy?
+      .info= t('homepage.where_are_we')
       %span.fa.fa-angle-double-down
   #homepage-map.init{'data-locations' => @locations.to_json, :class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
 

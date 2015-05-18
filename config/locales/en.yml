@@ -20,8 +20,27 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_name: "Travel Blog"
+  app_name: "Flying wheels"
   app_language: en_GB
   head:
     keywords: "travel, bike, self-sustained bike journey"
     description: "Our bike trip around the world."
+  homepage:
+    subtitle: "Flies between teeth, wind in bags, flowers on wheels"
+    subtitle_desc: "a blog about our cycling adventure"
+    whats_up: "What's up?"
+    where_are_we: "Where are we?"
+    latest_posts: "See our other posts >>"
+    start_date: "We started our journey in Warsaw in April 21st, 2015"
+    counter_disclaimer: "It loks like we're moving even when asleep!"
+    timer_template: "[COUNT]. day of our journey"
+    counter_template: "We've cycled [COUNT] meters so far"
+  posts:
+    latest:
+      title: What's new?
+      description: Latest posts.
+      bad_tag: "No posts categorized as '%{tag}' found. Showing latest posts."
+      tagged_with: "Posts matching '%{tag}'."
+    show:
+      top: Top
+      home: Home

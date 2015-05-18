@@ -11,17 +11,19 @@ class Homepage
     @init_maps() unless $('#homepage-map').hasClass('no-init')
 
   set_counter: ->
-    that_moment = moment $('#homepage-timer').data('when')
+    timer_el = $('#homepage-timer')
+    that_moment = moment timer_el.data('when')
     diff = moment().diff(that_moment)/1000
     days = Math.ceil(diff/(60*60*24))
-    $('#homepage-timer').html "#{days}. dzień w trasie"
+    timer_el.html timer_el.data('template').replace('[COUNT]', days)
 
   set_odo: ->
-    km = $('#homepage-odometer').data('km')
-    odo_moment = moment $('#homepage-odometer').data('when')
+    counter_el = $('#homepage-odometer')
+    km = counter_el.data('km')
+    odo_moment = moment counter_el.data('when')
     diff = moment().diff(odo_moment)/1000
     proper_km = +km + diff*DEFAULT_DAILY_DISTANCE/(24*60*60)
-    $('#homepage-odometer').html "Przejechaliśmy #{Math.round(1000*proper_km)} metrów"
+    counter_el.html counter_el.data('template').replace('[COUNT]', Math.round(1000*proper_km))
 
   init_maps: ->
     handler = Gmaps.build('Google')

@@ -25,6 +25,16 @@ pl:
   head:
     keywords: "podróże, rower, dookoła świata"
     description: "Muchy w zębach, wiatr w sakwach, kwiaty w szprychach, czyli o naszej rowerowej podróży dookoła świata."
+  homepage:
+    subtitle: "Muchy w zębach, wiatr w sakwach, kwiaty w szprychach"
+    subtitle_desc: "czyli blog o naszej rowerowej podróży"
+    whats_up: "Co u nas?"
+    where_are_we: "Gdzie jesteśmy?"
+    latest_posts: "Zobacz nasze poprzednie wpisy >>"
+    start_date: "Wyruszyliśmy z Warszawy 21 kwietnia 2015 roku"
+    counter_disclaimer: "Wygląda na to, że poruszamy się nawet, kiedy śpimy!"
+    timer_template: "[COUNT]. dzień w trasie"
+    counter_template: "Przejechaliśmy [COUNT] metrów"
   posts:
     latest:
       title: Co nowego?

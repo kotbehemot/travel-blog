@@ -1,5 +1,8 @@
-- if params[:controller] != 'homepage'
-  %navigation
+%navigation
+  - if params[:controller] != 'homepage'
     #home-button
       = link_to root_path do
         %span.fa.fa-home
+  - else
+    #language-switch
+      = switch_locale_link
