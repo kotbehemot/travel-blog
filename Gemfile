@@ -7,6 +7,7 @@ gem 'rails', '4.2.0'
 gem 'pg'
 gem 'foreigner'
 
+gem 'rack-rewrite'
 
 gem 'haml'
 gem 'sass-rails', '~> 4.0.3'
