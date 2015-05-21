@@ -26,6 +26,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.friendly.find params[:id]
     impressionist(@post, nil, :unique => [:session_hash])
+
+    @title = @post.title
+    @description = @post.summary
   end
 
 end
