@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.friendly.find params[:id]
-    impressionist(@post)
+    impressionist(@post, nil, :unique => [:session_hash])
   end
 
 end
