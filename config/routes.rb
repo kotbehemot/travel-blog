@@ -5,6 +5,13 @@ Rails.application.routes.draw do
 
   get '/:locale' => 'homepage#show', constraints: {locale: /en/}
 
+  namespace :admin do
+    resources :posts, :except => [:edit]
+    #resources :tags, :except => [:edit]
+    resources :places, :except => [:edit]
+    root 'posts#index'
+  end
+
   scope "(:locale)", locale: /en/, constraints: {locale: /en/} do
     get 'm/:place' => 'posts#index'
     get 't/:tag' => 'posts#index'
@@ -15,10 +22,5 @@ Rails.application.routes.draw do
   end
   root 'homepage#show'
 
-  namespace :admin do
-    resources :posts, :except => [:edit]
-    #resources :tags, :except => [:edit]
-    resources :places, :except => [:edit]
-    root 'posts#index'
-  end
+
 end
