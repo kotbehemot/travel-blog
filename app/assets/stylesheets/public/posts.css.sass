@@ -63,6 +63,7 @@
   > p
     display: block
     padding-top: 2em
+    padding-bottom: 2em
     width: 70%
     margin: auto
     overflow: inherit
@@ -92,6 +93,9 @@
     margin: 3em
     a
       margin: 1em
+
+  #post-comments
+    padding: 1em 2em
 
 .post-box
   overflow: hidden
@@ -141,9 +145,9 @@
       @media (max-width: $break-medium)
         padding: 2em 5em
       @media (max-width: $break-small)
-        padding: 1em 1em
+        padding: 1em 2em
       @media (max-width: $break-tiny)
-        padding: 1em 0
+        padding: 1em 1em
   &:hover a .post-summary
     bottom: 0
 

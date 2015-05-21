@@ -1,5 +1,9 @@
 #post-comments
   #post-comments-hidden
-    = link_to t('posts.comment'), '#', {:class => 'btn btn-black', 'data-loading-message' => t('posts.comments_loading')}
+    = link_to '#', {:class => 'btn btn-black', 'data-loading-message' => t('posts.comments_loading')} do
+      %span= t('posts.comment')
+      %span (
+      %span.fb-comments-count{'data-href' => request.original_url}> ...
+      %span )
   #post-comments-visible
-    .fb-comments-unloaded{'data-numposts' => "10"}
+    #fb-comments-unloaded{'data-numposts' => "10", 'data-width' => '100%', 'data-href' => request.original_url}
