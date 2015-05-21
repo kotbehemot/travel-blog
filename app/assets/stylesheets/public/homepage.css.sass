@@ -33,8 +33,18 @@
       line-height: 22em
       color: #fff
 
-  .fb-xfbml-parse-ignore
-    a
-      text-align: center
-      text-transform: uppercase
-      color: #ccc
+  #social-plugins
+    #big-fb-like
+
+    #small-fb-like
+      display: none
+    @media (max-width: $break-small)
+      #big-fb-like
+        display: none
+      #small-fb-like
+        display: inherit
+    .fb-xfbml-parse-ignore
+      a
+        text-align: center
+        text-transform: uppercase
+        color: #ccc

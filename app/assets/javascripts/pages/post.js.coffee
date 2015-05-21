@@ -17,4 +17,4 @@ class DynamicFacebookComments
         $('#post-fb-like').css('top', '2em')
 
 $ ->
-  new DynamicFacebookComments
+  new DynamicFacebookComments if $('#post-comments').length > 0
