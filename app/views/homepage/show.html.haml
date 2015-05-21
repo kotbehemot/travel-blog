@@ -25,5 +25,5 @@
       %span.fa.fa-angle-double-down
   #homepage-map.init{'data-locations' => @locations.to_json, :class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
 
+  = render 'shared/fb_like_page'
   = render 'shared/footer'
-  =# render 'shared/fb_like_page'

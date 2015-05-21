@@ -19,4 +19,5 @@
 //= require parallax
 //= require public
 //= require pages/homepage
+//= require pages/post
 //= require gmaps/google

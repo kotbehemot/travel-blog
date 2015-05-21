@@ -41,6 +41,8 @@ en:
       description: Latest posts.
       bad_tag: "No posts categorized as '%{tag}' found. Showing latest posts."
       tagged_with: "Posts matching '%{tag}'."
+    comment: Comment
+    comments_loading: Loading comments...
     show:
       top: Top
       home: Home
