@@ -20,7 +20,6 @@
       %span.fa.fa-home
       = t('posts.show.home')
 
-
   - if @post.footer_image_defined?
     #footer-post-image.fullscreen.background.parallax{:style => "background-image:url(\"#{@post.footer_image.url}\");", 'data-img-width' => @post.footer_image_width, 'data-img-height' => @post.footer_image_height, 'data-diff' => 200}
 
