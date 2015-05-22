@@ -14,7 +14,7 @@ class DynamicFacebookComments
     if typeof FB != 'undefined'
       FB.XFBML.parse document.getElementById('post-comments'), () ->
         fb_init_button.hide()
-        $('#post-fb-like').css('top', '2em')
+        $('#post-fb-like').css('top', '1.2em')
 
 $ ->
   new DynamicFacebookComments if $('#post-comments').length > 0
