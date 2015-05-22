@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.where(:published => true).limit(20)
+    @posts = Post.where(:published => true).limit(20).order('created_at DESC')
     if params[:tag]
       @posts = @posts.tagged_with(params[:tag])
       @description = I18n.t('posts.latest.tagged_with', :tag => params[:tag])
