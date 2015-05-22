@@ -1,23 +1,7 @@
 !!!
 %html{:lang => t('app_language')}
   %head
-    %title= page_title
-    %meta{:charset => "UTF-8" }
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-    %link{:rel => 'shortcut icon', :href => '/favicon.png'}
-    %link{:href => url_for(:host => ENV["CANONICAL_HOST"] || request.host, :only_path => false), :rel => "canonical"}
-
-    %meta{:name => 'keywords', :content => t('head.keywords')}
-    %meta{:name => 'description', :content => @description || t('head.description')}
-    %meta{:property => "og:site_name", :content => t('app_name')}
-    %meta{:property => "og:title", :content => @title || t('app_name')}
-    %meta{:property => "og:description", :content => @description || t('head.description')}
-    %meta{:property => "fb:app_id", :content => Rails.application.secrets.fb_app_id}
-    %meta{:property => "og:locale", :content => t('app_language')}
-    %meta{:property => "article:author", :content => Rails.application.secrets.fb_app_page}
-    %meta{:property => "article:publisher", :content => Rails.application.secrets.fb_app_page}
-    %meta{:property => "og:image", :content => @meta_image_url || "http://#{request.host}/images/bg/most.jpg"}
-    %meta{:property => "og:type", :content => "article"}
+    = render 'shared/metadata'
 
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
