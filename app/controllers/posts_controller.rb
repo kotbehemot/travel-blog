@@ -29,6 +29,7 @@ class PostsController < ApplicationController
 
     @title = @post.title
     @description = @post.summary
+    @meta_image_url = @post.header_image.url
   end
 
 end
