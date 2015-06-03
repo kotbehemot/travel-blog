@@ -24,13 +24,14 @@ en:
   app_language: en_GB
   head:
     keywords: "travel, bike, self-sustained bike journey"
-    description: "Our bike trip around the world."
+    description: "'If you want to go fast, go alone. If you want to go far, go together' - a blog about our cycling adventure"
   homepage:
-    subtitle: "Flies between teeth, wind in bags, flowers on wheels"
-    subtitle_desc: "a blog about our cycling adventure"
-    whats_up: "What's up? (we write in Polish, sorry)"
-    where_are_we: "Where are we?"
-    latest_posts: "See our other posts >>"
+    manifest1: "If you want to go fast, go alone."
+    manifest2: "If you want to go far, go together."
+    subtitle: "a blog about our cycling adventure"
+    whats_up: "what's up? (we write in Polish, sorry)"
+    where_are_we: "where are we?"
+    latest_posts: "see our other posts >>"
     start_date: "We started our journey in Warsaw in April 21st, 2015"
     counter_disclaimer: "It loks like we're moving even when asleep!"
     timer_template: "[COUNT]. day of our journey"
