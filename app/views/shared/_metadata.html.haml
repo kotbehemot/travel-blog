@@ -13,6 +13,6 @@
 %meta{:property => "og:locale", :content => t('app_language')}
 %meta{:property => "article:author", :content => Rails.application.secrets.fb_app_page}
 %meta{:property => "article:publisher", :content => Rails.application.secrets.fb_app_page}
-%meta{:property => "og:image", :content => @meta_image_url || "http://#{request.host}/images/bg/morze.jpg"}
+%meta{:property => "og:image", :content => @meta_image_url || "http://#{request.host}/images/bg/home.jpg"}
 %meta{:property => "og:type", :content => page_type}
 %meta{:property => "og:url", :content => url_for(:host => ENV["CANONICAL_HOST"] || request.host, :only_path => false)}
