@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @photo] do |f|
+
+  %fieldset
+    %legend Replace image
+    - if @photo.image.file?
+      .input-image-preview= image_tag @photo.image.url(:thumb)
+    = f.input :image
+
+  .actions
+    = f.submit 'Save', :class => 'btn btn-big btn-blue'

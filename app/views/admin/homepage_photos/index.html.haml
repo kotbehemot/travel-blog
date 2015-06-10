@@ -1,0 +1,7 @@
+%ul#admin-homepage-photos.blocks-5
+  - @photos.each do |photo|
+    %li
+      = link_to [:admin, photo] do
+        = image_tag photo.image.url(:medium)
+
+= link_to 'Upload Photo', new_admin_homepage_photo_path, :class => 'btn btn-blue'

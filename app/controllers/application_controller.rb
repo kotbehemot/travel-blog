@@ -3,7 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :set_locale
+  before_action :set_locale, :set_main_photo
+
+  protected
+  def set_main_photo
+    @main_photo = HomepagePhoto.order('created_at DESC').limit(1).first
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

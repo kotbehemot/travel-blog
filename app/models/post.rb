@@ -3,9 +3,9 @@ class Post < ActiveRecord::Base
   friendly_id :title, :use => :slugged
 
   has_attached_file :header_image,
-    :styles => { :thumb => '118x100#', :medium => '400x300#', :original => '1600x1600>' }
+    :styles => { :thumb => '118x100#', :medium => '400x300#', :original => '1600' }
   has_attached_file :footer_image,
-    :styles => { :thumb => '118x100#', :medium => '400x300#', :original => '1600x1600>' }
+    :styles => { :thumb => '118x100#', :medium => '400x300#', :original => '1600' }
 
   after_header_image_post_process :save_header_image_dimensions
   after_footer_image_post_process :save_footer_image_dimensions

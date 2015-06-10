@@ -2,7 +2,7 @@ class Admin::PlacesController < Admin::BaseController
 
   respond_to :html, :json
 
-  before_action :set_post, only: [:show, :update, :destroy]
+  before_action :set_place, only: [:show, :update, :destroy]
 
   def index
     @places = Place.order('created_at DESC')
@@ -35,7 +35,7 @@ class Admin::PlacesController < Admin::BaseController
   end
 
   private
-  def set_post
+  def set_place
     @place = Place.friendly.find(params[:id])
   end
 
