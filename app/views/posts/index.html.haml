@@ -1,6 +1,6 @@
 #posts-list
   - if @posts.size > 0
-    #post-list-title.fullscreen.background.parallax{:style => "background-image:url(\"#{@posts.first.header_image.url}\");", 'data-img-width' => @posts.first.header_image_width, 'data-img-height' => @posts.first.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @posts.first.inverted_title}"}
+    #post-list-title.fullscreen.background.parallax{:style => "background-image:url(#{@posts.first.header_image.url});", 'data-img-width' => @posts.first.header_image_width, 'data-img-height' => @posts.first.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @posts.first.inverted_title}"}
       .content
         %h1= link_to t('app_name'), root_path
         %h2= @title

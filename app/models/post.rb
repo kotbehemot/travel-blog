@@ -32,7 +32,7 @@ class Post < ActiveRecord::Base
 
   def parsed_content
     img_regexp = /<img[^>]*src="([^"]+)[^>]*style="[^"]*width:[ ]{0,1}([0-9]+)px;[^"]*height:[ ]{0,1}([0-9]+)px;[^"]*"[^>]*>/m
-    new_content = content.gsub(img_regexp, '<div class=\'fullscreen background parallax\' style=\'width:100%; background-image:url("\1");\' data-img-width=\2 data-img-height=\3 data-diff=200></div>')
+    new_content = content.gsub(img_regexp, '<div class=\'fullscreen background parallax\' style=\'width:100%; background-image:url(\1);\' data-img-width=\2 data-img-height=\3 data-diff=200></div>')
     new_content.html_safe
   end
 

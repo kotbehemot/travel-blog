@@ -1,5 +1,5 @@
 #post-content
-  #main-post-image.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@post.header_image.url}\");", 'data-img-width' => @post.header_image_width, 'data-img-height' => @post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @post.inverted_title}"}
+  #main-post-image.post-box.fullscreen.background.parallax{:style => "background-image:url(#{@post.header_image.url});", 'data-img-width' => @post.header_image_width, 'data-img-height' => @post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @post.inverted_title}"}
     .content
       %h1= @post.title
     .scroll-pls
