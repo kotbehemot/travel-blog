@@ -39,7 +39,7 @@ pl:
   posts:
     latest:
       title: Co nowego?
-      description: "Po prostu najświeższe wpisy. Jeśli interesuje Cię konkretne miejsce, możesz je wybrać poniżej."
+      description: "Po prostu najświeższe wpisy."
       bad_tag: "Nie znaleziono wpisów w kategorii '%{tag}'. Wyświetlam wszystkie najnowsze wpisy."
       tagged_with: "Wpisy z kategorii '%{tag}'."
     comment: Skomentuj
