@@ -42,3 +42,18 @@
   -ms-transform: translate($x, $y)
   -o-transform: translate($x, $y)
   transform: translate($x, $y)
+
+=text-box
+  display: block
+  padding-top: 2em
+  padding-bottom: 2em
+  width: 70%
+  margin: auto
+  overflow: inherit
+  text-align: justify
+  @media (max-width: $break-medium)
+    width: 80%
+  @media (max-width: $break-small)
+    width: 90%
+  @media (max-width: $break-tiny)
+    width: 95%

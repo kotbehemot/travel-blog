@@ -13,6 +13,13 @@
   = render 'shared/fb_comments'
 
   #post-actions
+    %span.published-at
+      %span.fa.fa-calendar-o
+      = @post.published_at
+    - unless @post.place.nil?
+      = link_to placed_posts_path(:place => @post.place.slug) do
+        %span.fa.fa-globe
+        = @post.place.name
     = link_to '#' do
       %span.fa.fa-arrow-up
       = t('posts.show.top')

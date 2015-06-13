@@ -22,7 +22,8 @@
     %legend Associations
     = f.input :place_id, :collection => Place.order(:name), :prompt => 'Select place'
 
-  %fieldset
+  %fieldset.publish
     %legend Publish and save
     = f.input :published
+    = f.input :published_at, :as => :string
     = f.submit 'Save', :class => 'btn btn-big btn-blue'

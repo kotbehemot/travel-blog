@@ -39,11 +39,12 @@ en:
   posts:
     latest:
       title: What's new?
-      description: Latest posts.
+      description: Our latest posts.
       bad_tag: "No posts categorized as '%{tag}' found. Showing latest posts."
       tagged_with: "Posts matching '%{tag}'."
     comment: Comment
     comments_loading: Loading comments...
+    read_more: 'see more'
     show:
       top: Top
       home: Home

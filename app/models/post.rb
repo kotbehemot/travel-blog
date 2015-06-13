@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
+  belongs_to :place
+
   has_attached_file :header_image,
     :styles => { :thumb => '118x100#', :medium => '400x300#', :original => '1600' }
   has_attached_file :footer_image,
@@ -15,7 +17,11 @@ class Post < ActiveRecord::Base
 
   validates :title, :slug, :presence => true
 
+  scope :published, -> { where(:published => true).order('published_at DESC') }
+
   is_impressionable
+
+  before_save :set_published
 
 
   def header_image_defined?
@@ -47,5 +53,9 @@ class Post < ActiveRecord::Base
     geo = Paperclip::Geometry.from_file(footer_image.queued_for_write[:original])
     self.footer_image_width = geo.width
     self.footer_image_height = geo.height
+  end
+
+  def set_published
+    self.published_at = Date.today if published && published_at.nil?
   end
 end

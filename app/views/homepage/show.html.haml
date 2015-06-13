@@ -1,5 +1,5 @@
 #homepage
-  #homepage-title.fullscreen.background.parallax{:style => "background-image:url(\"#{@main_photo.image.url}\");", 'data-img-width' => @main_photo.image_width, 'data-img-height' => @main_photo.image_height, 'data-diff' => 200, 'data-images' => @homepage_photos }
+  #homepage-title.image-gallery.fullscreen.background.parallax{:style => "background-image:url(\"#{@main_photo.image.url}\");", 'data-img-width' => @main_photo.image_width, 'data-img-height' => @main_photo.image_height, 'data-diff' => 200, 'data-images' => @homepage_photos }
     %h1
       = t('app_name')
     .scroll-pls

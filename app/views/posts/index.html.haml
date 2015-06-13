@@ -1,19 +1,14 @@
 #posts-list
   - if @posts.size > 0
-    #post-list-title.fullscreen.background.parallax{:style => "background-image:url(#{@posts.first.header_image.url});", 'data-img-width' => @posts.first.header_image_width, 'data-img-height' => @posts.first.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @posts.first.inverted_title}"}
-      .content
-        %h1= link_to t('app_name'), root_path
-        %h2= @title
+    .post-box.image-gallery.fullscreen.background.parallax{:style => "background-image:url(\"#{@main_photo.image.url}\");", 'data-img-width' => @main_photo.image_width, 'data-img-height' => @main_photo.image_height, 'data-diff' => 200, 'data-images' => @homepage_photos }
+      %h1= link_to t('app_name'), root_path
+      %h2= @title
       .scroll-pls
         %span.fa.fa-angle-double-down
-    .info.not-fullscren= @description
-    - @posts.each do |post|
-      .post-container.not-fullscren.parallax{:id => "post-#{post.id}"}
-        = link_to post do
-          .post-title= post.title
-          .post-summary= post.summary
-          .post-thumbnail
-            = image_tag post.header_image.url(:thumb)
+    .info.not-fullscren
+      = @description
+    = render @posts
+
   - else
     #post-actions
       Ups, nic tu nie ma.

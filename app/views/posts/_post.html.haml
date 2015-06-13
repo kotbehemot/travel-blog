@@ -1,0 +1,12 @@
+.post-box.fullscreen.background.parallax{:style => "background-image:url(#{post.header_image.url});", 'data-img-width' => post.header_image_width, 'data-img-height' => post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if post.inverted_title}"}
+  = link_to post do
+    %h3= post.title
+.post-summary.parallax
+  = post.summary
+  .data-box
+    %span.published_at= post.published_at
+    - unless post.place.nil?
+      %span.place
+        = link_to post.place.name, placed_posts_path(:place => post.place.slug)
+    %span.read_more
+      = link_to t('posts.read_more'), post

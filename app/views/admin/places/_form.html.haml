@@ -2,7 +2,8 @@
 
   %fieldset
     %legend Edit place
-    = f.input :name, input_html: { class: 'width-100' }
+    = f.input :name, input_html: { class: 'width-50' }
+    = f.input :slug, input_html: { class: 'width-50' }
     = f.input :description, :as => :text
 
   .actions

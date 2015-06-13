@@ -1,8 +1,6 @@
 class Homepage
 
   DEFAULT_DAILY_DISTANCE = 40
-  gallery_current_index = 0
-  gallery_images = []
 
   constructor: ->
     @set_counter()
@@ -11,7 +9,6 @@ class Homepage
       @set_odo()
     , 1000
     @init_maps() unless $('#homepage-map').hasClass('no-init')
-    @init_gallery()
 
   set_counter: ->
     timer_el = $('#homepage-timer')
@@ -59,8 +56,16 @@ class Homepage
       handler.fitMapToBounds()
       $('#homepage-map').removeClass('init')
 
+class ImageGallery
+
+  gallery_current_index = 0
+  gallery_images = []
+
+  constructor: ->
+    @init_gallery()
+
   init_gallery: ->
-    gallery_images = $('#homepage-title').data('images')
+    gallery_images = $('.image-gallery').data('images')
     setTimeout =>
       @shift_image_in_gallery()
     , 10000
@@ -71,7 +76,7 @@ class Homepage
     image_src = gallery_images[gallery_current_index]
     img = new Image()
     img.onload = =>
-      $('#homepage-title').css("background-image", "url(\"#{image_src}\")")
+      $('.image-gallery').css("background-image", "url(\"#{image_src}\")")
       setTimeout =>
         @shift_image_in_gallery()
       , 10000
@@ -79,4 +84,4 @@ class Homepage
 
 $ ->
   new Homepage if $('#homepage').length > 0
-
+  new ImageGallery if $('.image-gallery').lenght > 0

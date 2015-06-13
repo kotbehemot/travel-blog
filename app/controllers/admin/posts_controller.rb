@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::BaseController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = Post.order('created_at DESC')
+    @posts = Post.order('published_at DESC')
     respond_with(@posts)
   end
 
@@ -39,6 +39,6 @@ class Admin::PostsController < Admin::BaseController
     end
 
     def permitted_params
-      params.require(:post).permit(:title, :content, :summary, :published, :publication_date, :published_by, :place_id, :header_image, :footer_image, :video_link, :inverted_title, :tag_list => [])
+      params.require(:post).permit(:title, :content, :summary, :published, :published_at, :published_by, :place_id, :header_image, :footer_image, :video_link, :inverted_title, :tag_list => [])
     end
 end

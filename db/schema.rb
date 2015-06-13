@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610160420) do
+ActiveRecord::Schema.define(version: 20150613122400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(version: 20150610160420) do
     t.string   "slug",                                                   null: false
     t.boolean  "published",                              default: false, null: false
     t.string   "published_by"
-    t.date     "publication_date"
     t.string   "header_image_file_name"
     t.string   "header_image_content_type"
     t.integer  "header_image_file_size"
@@ -121,8 +120,10 @@ ActiveRecord::Schema.define(version: 20150610160420) do
     t.integer  "footer_image_height"
     t.boolean  "inverted_title",                         default: true,  null: false
     t.string   "video_link"
+    t.date     "published_at"
   end
 
+  add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
 
   create_table "taggings", force: :cascade do |t|

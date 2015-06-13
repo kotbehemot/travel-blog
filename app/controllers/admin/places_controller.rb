@@ -40,6 +40,6 @@ class Admin::PlacesController < Admin::BaseController
   end
 
   def permitted_params
-    params.require(:place).permit(:name)
+    params.require(:place).permit(:name, :slug, :description)
   end
 end

@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   end
 
   scope "(:locale)", locale: /en/, constraints: {locale: /en/} do
-    get 'm/:place' => 'posts#index'
-    get 't/:tag' => 'posts#index'
-    get 'm/:place/:id' => 'posts#show'
-    get 't/:tag/:id' => 'posts#show'
+    get 'm/:place' => 'posts#index', :as => :placed_posts
+    get 't/:tag' => 'posts#index', :as => :tagged_posts
+    get 'm/:place/:id' => 'posts#show', :as => :placed_post
+    get 't/:tag/:id' => 'posts#show', :as => :tagged_post
     get 'latest' => 'posts#index', :as => :latest_posts
     get ':id' => 'posts#show', :as => :post
   end
