@@ -4,7 +4,7 @@
       %h1= @post.title
     .scroll-pls
       %span.fa.fa-angle-double-down
-  = @post.parsed_content
+  = PostContentPresenter.new(@post).content
 
   - unless @post.video_link.blank?
     #post-video

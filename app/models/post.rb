@@ -36,12 +36,6 @@ class Post < ActiveRecord::Base
     title_changed? || super
   end
 
-  def parsed_content
-    img_regexp = /<img[^>]*src="([^"]+)[^>]*style="[^"]*width:[ ]{0,1}([0-9]+)px;[^"]*height:[ ]{0,1}([0-9]+)px;[^"]*"[^>]*>/m
-    new_content = content.gsub(img_regexp, '<div class=\'fullscreen background parallax image-gallery\' style=\'width:100%; background-image:url(\1);\' data-mfp-src=\'\1\' data-img-width=\2 data-img-height=\3 data-diff=200></div>')
-    new_content.html_safe
-  end
-
   protected
   def save_header_image_dimensions
     geo = Paperclip::Geometry.from_file(header_image.queued_for_write[:original])
