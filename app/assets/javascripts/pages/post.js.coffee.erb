@@ -28,6 +28,10 @@ class PostImagesGallery
         tNext: '<%= I18n.t('gallery.next') %>'
         tCounter: '<span class="mfp-counter"> <%= I18n.t('gallery.counter') %></span>'
       tClose: '<%= I18n.t('gallery.close') %>'
+      callbacks:
+        elementParse: (item) ->
+          if item.el.prop('tagName') == "IMG" && item.el.attr('src')
+            item.src = item.el.attr('src')
 
 $ ->
   new DynamicFacebookComments if $('#post-comments').length > 0
