@@ -15,6 +15,7 @@
 //= require underscore
 //= require vendor/kube.min.js
 //= require vendor/moment.min.js
+//= require vendor/magnific_popup.min.js
 //= require parallax
 //= require public
 //= require pages/homepage

@@ -50,3 +50,8 @@ pl:
       home: Strona główna
   social:
     like_app: Polub nas na Fejsbuku
+  gallery:
+    previous: 'Poprzednie zdjęcie (strzałka w lewo)'
+    next: 'Następne zdjęcie (strzałka w prawo)'
+    counter: '%curr% z %total%'
+    close: Zamknij

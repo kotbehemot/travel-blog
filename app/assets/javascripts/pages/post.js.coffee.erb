@@ -16,5 +16,19 @@ class DynamicFacebookComments
         fb_init_button.hide()
         $('#post-fb-like').css('top', '1.2em')
 
+class PostImagesGallery
+  constructor: ->
+    $('.image-gallery').magnificPopup
+      type: 'image'
+      gallery:
+        enabled: true
+        preload: [1,2]
+        navigateByImgClick: true
+        tPrev: '<%= I18n.t('gallery.previous') %>'
+        tNext: '<%= I18n.t('gallery.next') %>'
+        tCounter: '<span class="mfp-counter"> <%= I18n.t('gallery.counter') %></span>'
+      tClose: '<%= I18n.t('gallery.close') %>'
+
 $ ->
   new DynamicFacebookComments if $('#post-comments').length > 0
+  new PostImagesGallery if $('#post-content').length > 0

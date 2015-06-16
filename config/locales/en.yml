@@ -50,3 +50,8 @@ en:
       home: Home
   social:
     like_app: Like us on Facebook
+  gallery:
+    previous_arrow: 'Previous (Left arrow key)'
+    next_arrow: 'Next (Right arrow key)'
+    counter: '%curr% of %total%'
+    close: Close
