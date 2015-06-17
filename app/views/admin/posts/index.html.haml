@@ -2,7 +2,7 @@
   %thead
     %tr
       %th Title
-      %th Slug
+      %th Place
       %th Summary
       %th Views
       %th.actions &nbsp;
@@ -10,11 +10,11 @@
     - @posts.each do |post|
       %tr
         %td= post.title
-        %td= post.slug
+        %td= post.place.try(:name)
         %td.summary= post.summary
         %td
           - if post.published?
-            %span.fa.fa-eye
+            %span.fa.fa-eye{:title => post.published_at}
           - else
             %span.fa.fa-eye-slash
           = post.impressionist_count
