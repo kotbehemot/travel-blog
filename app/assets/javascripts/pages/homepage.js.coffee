@@ -84,4 +84,4 @@ class ImageGallery
 
 $ ->
   new Homepage if $('#homepage').length > 0
-  new ImageGallery if $('.image-gallery').lenght > 0
+  new ImageGallery if $('.image-gallery').length > 0

@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     end
     @places = Place.all
     @homepage_photos = HomepagePhoto.order('created_at DESC').map {|photo| photo.image.url}
-
+    @main_photo = HomepagePhoto.order('created_at DESC').limit(2).last
   end
 
   def show
