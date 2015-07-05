@@ -48,6 +48,10 @@ en:
     show:
       top: Top
       home: Home
+      published_at: Publication date
+      more_from_here: See all posts from here
+      next: Next post
+      previous: Previous post
   social:
     like_app: Like us on Facebook
   gallery:

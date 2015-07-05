@@ -18,7 +18,7 @@ class DynamicFacebookComments
 
 class PostImagesGallery
   constructor: ->
-    $('#post-content .image-gallery, #post-content img').magnificPopup
+    $('#post-content .image-gallery, #post-content img:not(.goto-post-image)').magnificPopup
       type: 'image'
       gallery:
         enabled: true

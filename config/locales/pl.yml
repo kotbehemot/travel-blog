@@ -48,6 +48,10 @@ pl:
     show:
       top: Do góry
       home: Strona główna
+      published_at: Data opublikowania postu
+      more_from_here: Zobacz wszystkie wpisy z tego miejsca
+      next: Następny wpis
+      previous: Poprzedni wpis
   social:
     like_app: Polub nas na Fejsbuku
   gallery:

@@ -53,6 +53,9 @@
   .image-gallery:not(#main-post-image), img
     cursor: zoom-in
 
+  a img
+    cursor: inherit
+
   #post-video
     position: relative
     width: 100%
@@ -67,12 +70,76 @@
       height: 100%
 
 
-  #post-actions
-    margin: 3em
+  #post-data
+    margin: 3em 8em 0 8em
+    z-index: 2
+
     > a, > span
       font-size: 0.9em
       color: $light-text-color
       margin: 1em
+      white-space: nowrap
+    > a:hover
+      color: $highlighted-text-color
+    > span
+      cursor: help
+  #posts-navigation
+    width: 100%
+    height: 100%
+    margin: -$line-height 0 0 0
+    z-index: 1
+    > a, > span
+      font-size: 0.9em
+      color: $light-text-color
+      margin: 1em
+      white-space: nowrap
+    > a:hover
+      color: $highlighted-text-color
+    .goto-post
+      margin: 0
+      position: absolute
+      width: 50%
+      top: 0
+      > a
+        font-size: 0.9em
+        color: $light-text-color
+        position: relative
+        display: block
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        &:hover
+          color: $highlighted-text-color
+          img
+            opacity: 0.2
+        img
+          position: absolute
+          top: 50px
+          width: 100%
+          +transition(opacity 0.4s ease)
+        h4
+          margin-top: 2em
+          text-transform: uppercase
+          color: $highlighted-text-color
+          font-size: 1.6em
+          text-align: center
+        span.arrow
+          margin: 5px
+      &#previous-post
+        left: 0
+        > a
+          text-align: left
+          img
+            left: 0
+      &#next-post
+        right: 0
+        > a
+          text-align: right
+          .fa
+            margin-left: 5px
+          img
+            right: 0
 
   #post-comments
     padding: 1em 2em 3em 2em
@@ -85,7 +152,6 @@
         position: absolute
         right: -6em
         top: 0
-
 
 .post-box
   overflow: hidden
@@ -142,5 +208,3 @@
 
   &:hover a .post-summary
     bottom: 0
-
-

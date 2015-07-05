@@ -34,6 +34,9 @@ class PostsController < ApplicationController
     @title = @post.title
     @description = @post.summary
     @meta_image_url = @post.header_image.url
+
+    @next_post = Post.published.where(['published_at > ?', @post.published_at]).order('published_at ASC').limit(1).first
+    @previous_post = Post.published.where(['published_at < ?', @post.published_at]).order('published_at DESC').limit(1).first
   end
 
 end
