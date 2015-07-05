@@ -66,9 +66,10 @@ class ImageGallery
 
   init_gallery: ->
     gallery_images = $('.image-gallery').data('images')
-    setTimeout =>
-      @shift_image_in_gallery()
-    , 10000
+    if gallery_images
+      setTimeout =>
+        @shift_image_in_gallery()
+      , 10000
 
   shift_image_in_gallery: ->
     return if gallery_images.length < 2
@@ -77,6 +78,7 @@ class ImageGallery
     img = new Image()
     img.onload = =>
       $('.image-gallery').css("background-image", "url(\"#{image_src}\")")
+      $(window).focus() #trigger resize event
       setTimeout =>
         @shift_image_in_gallery()
       , 10000
