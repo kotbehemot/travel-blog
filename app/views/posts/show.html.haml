@@ -34,7 +34,7 @@
             %span.fa.fa-arrow-left
             = t('posts.show.previous')
           .post-link{:style => "background-image:url(#{@previous_post.header_image.url(:medium)});"}
-            %h4{:class => "#{'inverted' if @previous_post.inverted_title}"}= @previous_post.title
+            %h4{:class => "#{'inverted' unless @previous_post.inverted_title}"}= @previous_post.title
       - else
         .no-goto-post
           %span.fa.fa-smile-o
@@ -46,7 +46,7 @@
             = t('posts.show.next')
             %span.fa.fa-arrow-right
           .post-link{:style => "background-image:url(#{@next_post.header_image.url(:medium)});"}
-            %h4{:class => "#{'inverted' if @next_post.inverted_title}"}= @next_post.title
+            %h4{:class => "#{'inverted' unless @next_post.inverted_title}"}= @next_post.title
       - else
         .no-goto-post
           %span.fa.fa-smile-o
