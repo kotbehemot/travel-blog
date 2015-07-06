@@ -9,7 +9,7 @@ class Homepage
     setInterval =>
       @set_odo()
     , 1000
-    @init_maps() if $('#homepage-map').hasClass('no-init')
+    @init_maps() unless $('#homepage-map').hasClass('no-init')
 
   set_counter: ->
     timer_el = $('#homepage-timer')
