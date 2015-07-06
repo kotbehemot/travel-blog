@@ -1,6 +1,7 @@
 class Homepage
 
   DEFAULT_DAILY_DISTANCE = 40
+  DISPLAY_LATEST_LOCATIONS = 6
 
   constructor: ->
     @set_counter()
@@ -8,7 +9,7 @@ class Homepage
     setInterval =>
       @set_odo()
     , 1000
-    @init_maps() unless $('#homepage-map').hasClass('no-init')
+    @init_maps() if $('#homepage-map').hasClass('no-init')
 
   set_counter: ->
     timer_el = $('#homepage-timer')
@@ -38,9 +39,10 @@ class Homepage
       internal: id: 'homepage-map'
     }, ->
       locations = $('#homepage-map').data('locations')
-      map_locations = []
-      for location in locations
-        map_locations.push {
+      map_locations_latest = []
+
+      for location in locations.slice(0,DISPLAY_LATEST_LOCATIONS)
+        map_locations_latest.push {
           'lat': location.lat
           'lng': location.lon
           'infowindow': location.date
@@ -50,10 +52,24 @@ class Homepage
             "height": 37
           }
         }
-
-      markers = handler.addMarkers(map_locations)
-      handler.bounds.extendWith(markers)
+      markers_latest = handler.addMarkers(map_locations_latest)
+      handler.bounds.extendWith(markers_latest)
       handler.fitMapToBounds()
+      map_locations_earlier = []
+      for location in locations.slice(DISPLAY_LATEST_LOCATIONS)
+        map_locations_earlier.push {
+          'lat': location.lat
+          'lng': location.lon
+          'infowindow': location.date
+          "picture": {
+            "url": "/images/cycling.png",
+            "width":  32,
+            "height": 37
+          }
+        }
+      markers_earlier = handler.addMarkers(map_locations_earlier)
+      handler.bounds.extendWith(markers_earlier)
+
       $('#homepage-map').removeClass('init')
 
 class ImageGallery
