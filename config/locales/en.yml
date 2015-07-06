@@ -47,11 +47,14 @@ en:
     read_more: 'see more'
     show:
       top: Top
+      back_to_list: Posts list
       home: Home
       published_at: Publication date
       more_from_here: See all posts from here
       next: Next post
       previous: Previous post
+      new_posts_incoming: Stay tuned! New posts incoming...
+      first_post: It's our first post!
   social:
     like_app: Like us on Facebook
   gallery:

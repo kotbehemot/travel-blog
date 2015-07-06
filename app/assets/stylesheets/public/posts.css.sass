@@ -87,7 +87,10 @@
     width: 100%
     height: 100%
     margin: -$line-height 0 0 0
+    white-space: nowrap
+    overflow: hidden
     z-index: 1
+    text-align: left
     > a, > span
       font-size: 0.9em
       color: $light-text-color
@@ -97,49 +100,75 @@
       color: $highlighted-text-color
     .goto-post
       margin: 0
-      position: absolute
       width: 50%
-      top: 0
+      height: 14em
+      white-space: normal
+      display: inline-block
+      clear: none
+      overflow: hidden
+      .no-goto-post
+        width: 100%
+        height: 12em
+        background-color: #f4f4f4
+        text-align: center
+        color: #ddd
+        margin-top: 2*$line-height
+        .fa
+          font-size: 3em
+          margin-top: 1em
+        .new-posts-incoming
+          display: block
+          font-size: 0.8em
       > a
         font-size: 0.9em
         color: $light-text-color
-        position: relative
         display: block
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
+        width: 100%
+        height: 100%
         &:hover
           color: $highlighted-text-color
           img
             opacity: 0.2
-        img
-          position: absolute
-          top: 50px
+        .post-link
+          margin-top: $line-height
+          height: 100%
           width: 100%
-          +transition(opacity 0.4s ease)
+          background-repeat: no-repeat
+          /* custom background-position
+          background-position: 50% 50%
+          /* ie8- graceful degradation
+          background-position: 50% 50% \9  !important
+          background-size: cover
+          transform: translateZ(-1px)
+          opacity: 1
+          +transition(opacity 0.6s ease)
+          &:hover
+            opacity: 0.7
         h4
-          margin-top: 2em
+          position: absolute
+          top: 0
           text-transform: uppercase
-          color: $highlighted-text-color
+          color: $text-color
           font-size: 1.6em
           text-align: center
+          &.inverted
+            color: $inverted-text-color
         span.arrow
           margin: 5px
       &#previous-post
-        left: 0
         > a
           text-align: left
-          img
-            left: 0
+        .post-link
+          h4
+            left: 0.2em
       &#next-post
-        right: 0
+        .post-link
+          h4
+            right: 0.2em
         > a
           text-align: right
           .fa
             margin-left: 5px
-          img
-            right: 0
 
   #post-comments
     padding: 1em 2em 3em 2em

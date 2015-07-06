@@ -20,29 +20,38 @@
       = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here') do
         %span.fa.fa-globe
         = @post.place.name
-    = link_to '#' do
-      %span.fa.fa-arrow-up
-      = t('posts.show.top')
+    = link_to latest_posts_path do
+      %span.fa.fa-list
+      = t('posts.show.back_to_list')
     = link_to root_path do
       %span.fa.fa-home
       = t('posts.show.home')
   #posts-navigation
-    - if @previous_post
-      #previous-post.goto-post
-        = link_to post_path(@previous_post) do
+    #previous-post.goto-post
+      - if @previous_post
+        = link_to post_path(@previous_post), :title => @previous_post.title do
           %span.arrow
             %span.fa.fa-arrow-left
             = t('posts.show.previous')
-          = image_tag @previous_post.header_image.url, :class => 'goto-post-image', :title => @previous_post.title
-          %h4= @previous_post.title
-    - if @next_post
-      #next-post.goto-post
-        = link_to post_path(@next_post) do
+          .post-link{:style => "background-image:url(#{@previous_post.header_image.url(:medium)});"}
+            %h4{:class => "#{'inverted' if @previous_post.inverted_title}"}= @previous_post.title
+      - else
+        .no-goto-post
+          %span.fa.fa-smile-o
+          %span.new-posts-incoming= t('posts.show.first_post')
+    #next-post.goto-post
+      - if @next_post
+        = link_to post_path(@next_post), :title => @next_post.title do
           %span.arrow
             = t('posts.show.next')
             %span.fa.fa-arrow-right
-          = image_tag @next_post.header_image.url, :class => 'goto-post-image', :title => @next_post.title
-          %h4= @next_post.title
+          .post-link{:style => "background-image:url(#{@next_post.header_image.url(:medium)});"}
+            %h4{:class => "#{'inverted' if @next_post.inverted_title}"}= @next_post.title
+      - else
+        .no-goto-post
+          %span.fa.fa-smile-o
+          %span.new-posts-incoming= t('posts.show.new_posts_incoming')
+
 
   - if @post.footer_image_defined?
     #footer-post-image.image-gallery.fullscreen.background.parallax{:style => "background-image:url(\"#{@post.footer_image.url}\");", 'data-img-width' => @post.footer_image_width, 'data-img-height' => @post.footer_image_height, 'data-diff' => 200, 'data-mfp-src' => @post.footer_image.url}
