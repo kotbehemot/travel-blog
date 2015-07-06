@@ -17,15 +17,18 @@
       %span.fa.fa-calendar-o
       = @post.published_at
     - unless @post.place.nil?
-      = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here') do
-        %span.fa.fa-globe
-        = @post.place.name
-    = link_to latest_posts_path do
-      %span.fa.fa-list
-      = t('posts.show.back_to_list')
-    = link_to root_path do
-      %span.fa.fa-home
-      = t('posts.show.home')
+      %span
+        = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here') do
+          %span.fa.fa-globe
+          = @post.place.name
+    %span
+      = link_to latest_posts_path do
+        %span.fa.fa-list
+        = t('posts.show.back_to_list')
+    %span
+      = link_to root_path do
+        %span.fa.fa-home
+        = t('posts.show.home')
   #posts-navigation
     #previous-post.goto-post
       - if @previous_post
