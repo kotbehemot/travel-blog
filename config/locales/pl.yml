@@ -45,6 +45,7 @@ pl:
     comment: Skomentuj
     comments_loading: Ładuję komentarze...
     read_more: 'zobacz więcej'
+    no_posts: 'Ups, nic tu nie ma.'
     show:
       top: Do góry
       back_to_list: Wszystkie wpisy

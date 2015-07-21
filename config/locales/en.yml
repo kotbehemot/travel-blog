@@ -45,6 +45,7 @@ en:
     comment: Comment
     comments_loading: Loading comments...
     read_more: 'see more'
+    no_posts: 'Ops, nothing here.'
     show:
       top: Top
       back_to_list: Posts list

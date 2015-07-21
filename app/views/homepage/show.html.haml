@@ -16,6 +16,8 @@
     #homepage-latest.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@latest_post.header_image.url}\");", 'data-img-width' => @latest_post.header_image_width, 'data-img-height' => @latest_post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @latest_post.inverted_title}"}
       = link_to post_path(@latest_post) do
         %h2= @latest_post.title
+        - unless @latest_post.video_link.blank?
+          %span.video-link.fa.fa-play-circle-o
         .post-summary= @latest_post.summary
   #homepage-latest-posts
     = link_to t('homepage.latest_posts'), latest_posts_path

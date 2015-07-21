@@ -5,6 +5,8 @@
   width: 100%
   color: $text-color
   .post-box
+    background-color: #efefef
+
     h2, h3
       text-shadow: 0 0 2px #88a
       width: 100%
@@ -20,6 +22,7 @@
       text-transform: uppercase
       font-size: 3em
       bottom: 1em
+
   .info
     +text-box
     text-align: center
@@ -52,6 +55,7 @@
 
   .image-gallery:not(#main-post-image), img
     cursor: zoom-in
+    background-color: #efefef
 
   a img
     cursor: inherit
@@ -185,6 +189,7 @@
 
 .post-box
   overflow: hidden
+  background-color: #efefef
   &.inverted
     h1, h2, h3
       color: $text-color
@@ -235,6 +240,18 @@
         bottom: 0
       @media (max-width: $break-tiny)
         padding: 1em 1em
+    .fa-play-circle-o
+      color: #fff
+      font-size: 12em
+      position: absolute
+      top: 15%
+      display: block
+      width: 100%
+      opacity: 0.2
+      &:hover
+        opacity: 0.3
+        font-size: 12.2em
+      +transition(all 0.4s ease)
 
   &:hover a .post-summary
     bottom: 0
