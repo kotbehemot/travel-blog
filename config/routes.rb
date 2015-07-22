@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     #resources :tags, :except => [:edit]
     resources :places, :except => [:edit]
     resources :homepage_photos, :except => [:edit]
+    resources :homepage_settings, :except => [:edit]
     root 'posts#index'
   end
 

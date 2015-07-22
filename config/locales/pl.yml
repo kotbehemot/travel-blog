@@ -35,7 +35,6 @@ pl:
     start_date: "Wyruszyliśmy z Warszawy 21 kwietnia 2015 roku"
     counter_disclaimer: "Wygląda na to, że poruszamy się nawet, kiedy śpimy!"
     timer_template: "[COUNT]. dzień w trasie"
-    counter_template: "Przejechaliśmy [COUNT] metrów"
   posts:
     latest:
       title: Co nowego?

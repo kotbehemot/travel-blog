@@ -1,8 +1,6 @@
 .post-box.fullscreen.background.parallax{:style => "background-image:url(#{post.header_image.url});", 'data-img-width' => post.header_image_width, 'data-img-height' => post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if post.inverted_title}"}
   = link_to post do
     %h3= post.title
-    - unless post.video_link.blank?
-      %span.video-link.fa.fa-play-circle-o
 .post-summary.parallax
   = post.summary
   .data-box

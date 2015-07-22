@@ -1,0 +1,17 @@
+%table
+  %thead
+    %tr
+      %th Key
+      %th Value
+      %th Updated at
+      %th.actions &nbsp;
+  %tbody
+    - @settings.each do |setting|
+      %tr
+        %td= setting.key
+        %td= setting.setting_value
+        %td= setting.updated_at
+        %td
+          = link_to 'Edit', [:admin, setting], :class => 'btn btn-smaller'
+
+= link_to 'New Setting', new_admin_post_path, :class => 'btn btn-blue'

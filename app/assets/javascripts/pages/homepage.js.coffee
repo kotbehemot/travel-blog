@@ -5,9 +5,9 @@ class Homepage
 
   constructor: ->
     @set_counter()
-    @set_odo()
+    @set_bike_odo()
     setInterval =>
-      @set_odo()
+      @set_bike_odo()
     , 1000
     @init_maps() unless $('#homepage-map').hasClass('no-init')
 
@@ -16,15 +16,15 @@ class Homepage
     that_moment = moment timer_el.data('when')
     diff = moment().diff(that_moment)/1000
     days = Math.ceil(diff/(60*60*24))
-    timer_el.html timer_el.data('template').replace('[COUNT]', days)
+    timer_el.children(".value").html days
 
-  set_odo: ->
-    counter_el = $('#homepage-odometer')
+  set_bike_odo: ->
+    counter_el = $('#homepage-odometer-bike')
     km = counter_el.data('km')
     odo_moment = moment counter_el.data('when')
     diff = moment().diff(odo_moment)/1000
     proper_km = +km + diff*DEFAULT_DAILY_DISTANCE/(24*60*60)
-    counter_el.html counter_el.data('template').replace('[COUNT]', Math.round(1000*proper_km))
+    counter_el.children(".value").html Math.round(1000*proper_km)
 
   init_maps: ->
     handler = Gmaps.build('Google')

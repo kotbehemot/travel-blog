@@ -16,14 +16,34 @@
     #homepage-latest.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@latest_post.header_image.url}\");", 'data-img-width' => @latest_post.header_image_width, 'data-img-height' => @latest_post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @latest_post.inverted_title}"}
       = link_to post_path(@latest_post) do
         %h2= @latest_post.title
-        - unless @latest_post.video_link.blank?
-          %span.video-link.fa.fa-play-circle-o
         .post-summary= @latest_post.summary
   #homepage-latest-posts
     = link_to t('homepage.latest_posts'), latest_posts_path
-  #homepage-travel-data
-    #homepage-timer.data-section{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date'), 'data-template' => t('homepage.timer_template')}
-    #homepage-odometer.data-section{'data-km' => HomepageSetting.value(:odometer), 'data-when' => HomepageSetting.by_slug(:odometer).updated_at.strftime("%Y-%m-%d %H:%M"), :title => t('homepage.counter_disclaimer'), 'data-template' => t('homepage.counter_template')}
+  #homepage-travel-data.units-row
+    #homepage-timer.data-section.unit-30{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date'), 'data-template' => t('homepage.timer_template')}
+      %span.fa.fa-calendar
+      %span.value
+      dni w trasie
+    #homepage-odometer-bike.data-section.unit-30{'data-km' => HomepageSetting.value(:odometer_bike), 'data-when' => HomepageSetting.by_slug(:odometer_bike).updated_at.strftime("%Y-%m-%d %H:%M"), :title => t('homepage.counter_disclaimer')}
+      %span.fa.fa-bicycle
+      %span.value
+      m
+    #homepage-odometer-rocket.data-section.unit-30
+      %span.fa.fa-rocket
+      %span.value= HomepageSetting.value(:odometer_rocket)
+      km
+    #homepage-odometer-train.data-section.unit-30
+      %span.fa.fa-train
+      %span.value= HomepageSetting.value(:odometer_train)
+      km
+    #homepage-odometer-ship.data-section.unit-30
+      %span.fa.fa-ship
+      %span.value= HomepageSetting.value(:odometer_ship)
+      km
+    #homepage-odometer-plane.data-section.unit-30
+      %span.fa.fa-plane
+      %span.value= HomepageSetting.value(:odometer_plane)
+      km
     .scroll-pls
       .info= t('homepage.where_are_we')
       %span.fa.fa-angle-double-down

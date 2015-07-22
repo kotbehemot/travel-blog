@@ -1,7 +1,7 @@
 class HomepageSetting < ActiveRecord::Base
 
   def self.by_slug(slug)
-    self.where(:key => slug).first_or_create
+    self.where(:key => slug.to_s).first_or_create
   end
 
   def self.value(slug)

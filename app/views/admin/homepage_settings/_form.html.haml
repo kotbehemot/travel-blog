@@ -1,0 +1,8 @@
+= simple_form_for [:admin, @setting] do |f|
+
+  %fieldset
+    = f.input :key
+    = f.input :setting_value
+
+  .actions
+    = f.submit 'Save', :class => 'btn btn-big btn-blue'
