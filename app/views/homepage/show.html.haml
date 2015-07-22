@@ -20,15 +20,15 @@
   #homepage-latest-posts
     = link_to t('homepage.latest_posts'), latest_posts_path
   #homepage-travel-data.units-row
-    #homepage-timer.data-section.unit-30{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date'), 'data-template' => t('homepage.timer_template')}
+    #homepage-timer.data-section.unit-30{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date')}
       %span.fa.fa-calendar
       %span.value
-      dni w trasie
+      = t('homepage.timer_description')
     #homepage-odometer-bike.data-section.unit-30{'data-km' => HomepageSetting.value(:odometer_bike), 'data-when' => HomepageSetting.by_slug(:odometer_bike).updated_at.strftime("%Y-%m-%d %H:%M"), :title => t('homepage.counter_disclaimer')}
       %span.fa.fa-bicycle
       %span.value
       m
-    #homepage-odometer-rocket.data-section.unit-30
+    #homepage-odometer-rocket.data-section.unit-30{:title => t('homepage.rocket_description')}
       %span.fa.fa-rocket
       %span.value= HomepageSetting.value(:odometer_rocket)
       km

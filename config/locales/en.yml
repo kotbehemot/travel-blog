@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_name: "Flying wheels"
+  app_name: "Flies in wheels"
   app_language: en_GB
   head:
     keywords: "travel, bike, self-sustained bike journey"
@@ -34,8 +34,8 @@ en:
     latest_posts: "see our other posts >>"
     start_date: "We started our journey in Warsaw in April 21st, 2015"
     counter_disclaimer: "It loks like we're moving even when asleep!"
-    timer_template: "[COUNT]. day of our journey"
-    counter_template: "We've cycled [COUNT] meters so far"
+    timer_description: "days on the road"
+    rocket_description: "wait for it..."
   posts:
     latest:
       title: What's new?
