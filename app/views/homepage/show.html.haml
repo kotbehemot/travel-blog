@@ -10,15 +10,9 @@
       %span= t('homepage.manifest2')
     %h3= t('homepage.subtitle')
     .scroll-pls
-      .info= t('homepage.whats_up')
+      .info= t('homepage.where_are_we')
       %span.fa.fa-angle-double-down
-  - if @latest_post
-    #homepage-latest.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@latest_post.header_image.url}\");", 'data-img-width' => @latest_post.header_image_width, 'data-img-height' => @latest_post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @latest_post.inverted_title}"}
-      = link_to post_path(@latest_post) do
-        %h2= @latest_post.title
-        .post-summary= @latest_post.summary
-  #homepage-latest-posts
-    = link_to t('homepage.latest_posts'), latest_posts_path
+  #homepage-map.init{'data-locations' => @locations.to_json, :class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
   #homepage-travel-data.units-row
     #homepage-timer.data-section.unit-30{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date')}
       %span.fa.fa-calendar
@@ -45,9 +39,23 @@
       %span.value= HomepageSetting.value(:odometer_plane)
       km
     .scroll-pls
-      .info= t('homepage.where_are_we')
+      .info= t('homepage.whats_up')
       %span.fa.fa-angle-double-down
-  #homepage-map.init{'data-locations' => @locations.to_json, :class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
+  - if @latest_post
+    #homepage-latest.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@latest_post.header_image.url}\");", 'data-img-width' => @latest_post.header_image_width, 'data-img-height' => @latest_post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @latest_post.inverted_title}"}
+      = link_to post_path(@latest_post) do
+        %h2= @latest_post.title
+        .post-summary= @latest_post.summary
+  #homepage-post-list
+    #homepage-all-posts-link.homepage-place-link
+      = link_to t('homepage.latest_posts'), latest_posts_path
+    .scroll-pls
+      .info= t('homepage.post_categories')
+      %span.fa.fa-angle-double-down
+  %ul#homepage-posts-categories.blocks-4.blocks-mobile-50
 
+    - @places.each do |place|
+      %li.homepage-place-link{:style => "background-image:url(\"#{place.posts.first.header_image.url(:medium)}\");"}
+        = link_to place.name, placed_posts_path(:place => place.slug)
   = render 'shared/fb_like_page' unless Rails.env.development?
   = render 'shared/footer'

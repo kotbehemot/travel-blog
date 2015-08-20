@@ -19,10 +19,39 @@
         display: block
         line-height: 1.4em
 
-  #homepage-latest-posts
-    text-align: right
-    padding: 1em 0.5em 1em 1em
-    text-transform: uppercase
+  #homepage-post-list, #homepage-posts-categories
+    .homepage-place-link
+      font-size: 1.7em
+      height: 2em
+      background-repeat: no-repeat
+      background-position: 50% -66%
+      background-size: cover
+      border: 1px solid $text-color
+      +transition(background-position 0.6s ease)
+      a
+        display: block
+        text-transform: uppercase
+        text-align: center
+        font-weight: bold
+        line-height: 2em
+      &:hover
+        background-position: 50% 50%
+        a
+          color: $inverted-text-color
+          text-shadow: 0 0 1px #ccf
+
+  #homepage-post-list
+    padding: 2em 0
+    text-align: center
+    #homepage-all-posts-link
+      width: 47%
+      margin: 0 auto 4em auto
+      &:hover
+        background-color: #999
+
+
+  #homepage-posts-categories
+    padding: 1em
 
   #homepage-travel-data
     margin: 2em 0 0 0

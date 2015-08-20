@@ -4,6 +4,15 @@
       %h1= @post.title
     .scroll-pls
       %span.fa.fa-angle-double-down
+  #post-data-header
+    %span.published-at{:title => t('posts.show.published_at')}
+      %span.fa.fa-calendar-o
+      = @post.published_at
+    - unless @post.place.nil?
+      %span
+        = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here') do
+          %span.fa.fa-globe
+          = @post.place.name
   = PostContentPresenter.new(@post).content
 
   - unless @post.video_link.blank?
@@ -13,14 +22,6 @@
   = render 'shared/fb_comments'
 
   #post-data
-    %span.published-at{:title => t('posts.show.published_at')}
-      %span.fa.fa-calendar-o
-      = @post.published_at
-    - unless @post.place.nil?
-      %span
-        = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here') do
-          %span.fa.fa-globe
-          = @post.place.name
     %span
       = link_to latest_posts_path do
         %span.fa.fa-list
