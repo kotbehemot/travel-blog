@@ -93,11 +93,17 @@ class ImageGallery
     image_src = gallery_images[gallery_current_index]
     img = new Image()
     img.onload = =>
-      $('.image-gallery').css("background-image", "url(\"#{image_src}\")")
-      $(window).focus() #trigger resize event
+      $('.image-gallery').css("opacity", 0)
       setTimeout =>
-        @shift_image_in_gallery()
-      , 10000
+        $('.image-gallery').css("background-image", "url(\"#{image_src}\")")
+        $(window).focus() #trigger resize event
+        setTimeout =>
+          $('.image-gallery').css("opacity", 1)
+          setTimeout =>
+            @shift_image_in_gallery()
+          , 10000
+        , 80
+      , 80
     img.src = image_src
 
 $ ->

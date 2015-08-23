@@ -7,6 +7,7 @@
   #homepage-title
     background-image: url(/images/bg/home.jpg)
     background-color: #efefef
+    +transition(opacity 0.08s ease)
     .scroll-pls
       color: white
       text-shadow: 0 0 1px #ccf
@@ -34,11 +35,13 @@
         text-align: center
         font-weight: bold
         line-height: 2em
+        +transition(color 0.4s ease)
       &:hover
         background-position: 50% 50%
         a
           color: $inverted-text-color
           text-shadow: 0 0 1px #ccf
+
 
   #homepage-post-list
     padding: 2em 0
@@ -46,8 +49,10 @@
     #homepage-all-posts-link
       width: 47%
       margin: 0 auto 4em auto
-      &:hover
-        background-color: #999
+      background-image: url('/images/gray_dot.png')
+      +transition(background-position 1s ease)
+      a
+        +transition(color 0.5s ease)
 
 
   #homepage-posts-categories

@@ -57,3 +57,13 @@
     width: 90%
   @media (max-width: $break-tiny)
     width: 95%
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
