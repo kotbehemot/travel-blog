@@ -26,6 +26,9 @@ gem 'simple_form'
 gem 'ckeditor'
 gem 'acts-as-taggable-on'
 
+gem 'kaminari'
+gem 'jquery-infinite-pages'
+
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'impressionist'

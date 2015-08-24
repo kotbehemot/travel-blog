@@ -1,0 +1,9 @@
+$("<%=j render @posts %>").appendTo($("#posts-endless-list"));
+
+// Update pagination link
+<% if @posts.last_page? %>
+  $('#pagination-link').remove();
+<% else %>
+  $('#pagination-link').removeClass('btn-active')
+    .html("<%=j link_to_next_page(@posts, t('posts.more_posts'), :remote => true) %>");
+<% end %>

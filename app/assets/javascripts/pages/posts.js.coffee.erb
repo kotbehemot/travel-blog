@@ -1,0 +1,21 @@
+class PostsList
+  constructor: ->
+    @initClicking()
+    @initEndlessScroll()
+
+  initClicking: ->
+    $('.post-list-element').on 'click', (event) ->
+      return if $(event.target).is('a')
+      event.preventDefault()
+      window.location.href = $(this).find('a').attr('href')
+
+  initEndlessScroll: ->
+    $('#posts-list').infinitePages
+      # debug: true
+      loading: ->
+        $(this).text($(this).parent().addClass('btn-active').data('next-page'))
+      error: ->
+        $(this).text($(this).parent().data('error'))
+
+$ ->
+  new PostsList if $('#posts-list')

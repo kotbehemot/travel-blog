@@ -16,8 +16,10 @@
 //= require vendor/kube.min.js
 //= require vendor/moment.min.js
 //= require vendor/magnific_popup.min.js
+//= require jquery.infinite-pages
 //= require parallax
 //= require public
 //= require pages/homepage
+//= require pages/posts
 //= require pages/post
 //= require gmaps/google

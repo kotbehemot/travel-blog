@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::BaseController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = Post.order('published_at DESC')
+    @posts = Post.order('published_at DESC').page(params[:page])
     respond_with(@posts)
   end
 

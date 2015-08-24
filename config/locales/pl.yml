@@ -47,6 +47,9 @@ pl:
     comments_loading: Ładuję komentarze...
     read_more: 'zobacz więcej'
     no_posts: 'Ups, nic tu nie ma.'
+    more_posts: 'Więcej postów'
+    next_page: 'Ładuję więcej postów...'
+    error_loading_next_page: 'Błąd ładowania kolejnych postów.'
     show:
       top: Do góry
       back_to_list: Wszystkie wpisy

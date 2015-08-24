@@ -47,6 +47,9 @@ en:
     comments_loading: Loading comments...
     read_more: 'see more'
     no_posts: 'Ops, nothing here.'
+    more_posts: 'More posts'
+    loading_next_page: 'Loading more posts...'
+    error_loading_page: 'Error loading more posts.'
     show:
       top: Top
       back_to_list: Posts list

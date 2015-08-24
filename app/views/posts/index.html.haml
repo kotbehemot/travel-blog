@@ -1,13 +1,14 @@
 #posts-list
   - if @posts.size > 0
-    .post-box.image-gallery.fullscreen.background.parallax{:style => "background-image:url(\"#{@main_photo.image.url}\");", 'data-img-width' => @main_photo.image_width, 'data-img-height' => @main_photo.image_height, 'data-diff' => 200, 'data-images' => @homepage_photos }
+    #post-list-header.fullscreen.background.parallax{:style => "background-image:url(\"#{@posts.first.header_image.url}\");", 'data-img-width' => @posts.first.header_image_width, 'data-img-height' => @posts.first.header_image_height, 'data-diff' => 200 }
       %h1= link_to t('app_name'), root_path
       %h2= @title
       .scroll-pls
         %span.fa.fa-angle-double-down
-    .info.not-fullscren
-      = @description
-    = render @posts
+    #posts-endless-list
+      = render @posts
+    - unless @posts.last_page?
+      #pagination-link.btn.btn-big.btn-outline{'data-next-page' => t('posts.next_page'), 'data-error' => t('posts.error_loading_next_page')}= link_to_next_page(@posts, t('posts.more_posts'), :remote => true)
 
   - else
     #post-actions

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.published.limit(20)
+    @posts = Post.published.page(params[:page]).per(6)
     @description = t('posts.latest.description')
     if params[:tag]
       @posts = @posts.tagged_with(params[:tag])
@@ -19,12 +19,10 @@ class PostsController < ApplicationController
     end
     @title ||= I18n.t('posts.latest.title')
     if @posts.empty?
-      @posts = Post.published.limit(20)
+      @posts = Post.published.page(:params[:page]).per(6)
       @description = I18n.t('posts.latest.bad_tag', :tag => params[:place] || params[:tag])
     end
     @places = Place.all
-    @homepage_photos = HomepagePhoto.order('created_at DESC').map {|photo| photo.image.url}
-    @main_photo = HomepagePhoto.order('created_at DESC').limit(2).last
   end
 
   def show
