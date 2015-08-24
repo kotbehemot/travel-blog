@@ -5,7 +5,8 @@
     .post-info
       = link_to post do
         %h3= post.title
-      = post.summary
+      .post-summary
+        = post.summary
       .data-box
         %span.published_at= post.published_at
         - unless post.place.nil?
