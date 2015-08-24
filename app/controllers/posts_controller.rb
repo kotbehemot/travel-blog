@@ -23,6 +23,7 @@ class PostsController < ApplicationController
       @description = I18n.t('posts.latest.bad_tag', :tag => params[:place] || params[:tag])
     end
     @places = Place.all
+    @post_photos = @posts.map {|p| p.header_image.url }
   end
 
   def show

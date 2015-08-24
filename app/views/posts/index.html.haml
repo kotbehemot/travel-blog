@@ -1,6 +1,6 @@
 #posts-list
   - if @posts.size > 0
-    #post-list-header.fullscreen.background.parallax{:style => "background-image:url(\"#{@posts.first.header_image.url}\");", 'data-img-width' => @posts.first.header_image_width, 'data-img-height' => @posts.first.header_image_height, 'data-diff' => 200 }
+    #post-list-header.image-gallery.fullscreen.background.parallax{:style => "background-image:url(\"#{@posts.first.header_image.url}\");", 'data-img-width' => @posts.first.header_image_width, 'data-img-height' => @posts.first.header_image_height, 'data-diff' => 200, 'data-images' => @post_photos }
       %h1= link_to t('app_name'), root_path
       %h2= @title
       .scroll-pls
