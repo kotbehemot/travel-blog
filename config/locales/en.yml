@@ -50,6 +50,7 @@ en:
     more_posts: 'More posts'
     loading_next_page: 'Loading more posts...'
     error_loading_page: 'Error loading more posts.'
+    video_content: 'Contains video content.'
     show:
       top: Top
       back_to_list: Posts list

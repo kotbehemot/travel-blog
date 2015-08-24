@@ -8,7 +8,9 @@
       .post-summary
         = post.summary
       .data-box
-        %span.published_at= post.published_at
+        %span.published_at{:title => t('posts.show.published_at')}= post.published_at
+        - unless post.video_link.blank?
+          %span.fa.fa-video-camera{:title => t('posts.video_content')}
         - unless post.place.nil?
           %span.place
             = link_to post.place.name, placed_posts_path(:place => post.place.slug)

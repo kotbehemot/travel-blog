@@ -49,6 +49,7 @@ pl:
     no_posts: 'Ups, nic tu nie ma.'
     more_posts: 'Więcej postów'
     next_page: 'Ładuję więcej postów...'
+    video_content: 'Minister Zdrowia ostrzega: Zawiera VIDEO!'
     error_loading_next_page: 'Błąd ładowania kolejnych postów.'
     show:
       top: Do góry
