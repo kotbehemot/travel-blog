@@ -87,6 +87,10 @@
             right: 0
             > span
               padding: 0 3em
+              @media (max-width: $break-small)
+                padding: 0 2.3em
+              @media (max-width: $break-tiny)
+                padding 0 1.5em
               border-right: 1px solid $light-text-color
               &:last-child
                 padding: 0 0 0 3em
