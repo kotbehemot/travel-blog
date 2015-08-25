@@ -26,7 +26,7 @@ Ckeditor.setup do |config|
 
   # Paginate assets
   # By default: 24
-  # config.default_per_page = 24
+  config.default_per_page = 50
 
   # Customize ckeditor assets path
   # By default: nil
