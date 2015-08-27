@@ -36,6 +36,7 @@ class PostsController < ApplicationController
 
     @next_post = Post.where(:published => true).where(['published_at > ?', @post.published_at]).order('published_at ASC').limit(1).first
     @previous_post = Post.where(:published => true).where(['published_at < ?', @post.published_at]).order('published_at DESC').limit(1).first
+    @post_presenter = PostContentPresenter.new(@post)
   end
 
 end

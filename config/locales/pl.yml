@@ -51,6 +51,8 @@ pl:
     next_page: 'Ładuję więcej postów...'
     video_content: 'Minister Zdrowia ostrzega: Zawiera VIDEO!'
     error_loading_next_page: 'Błąd ładowania kolejnych postów.'
+    is_photostory: 'Galeria zdjęć'
+    photostory_initializing: 'Ładuję galerię zdjęć'
     show:
       top: Do góry
       back_to_list: Wszystkie wpisy

@@ -12,4 +12,11 @@ class PostContentPresenter
     new_content = new_content.gsub(IMG_REGEXP, '<div class=\'fullscreen background parallax image-gallery\' style=\'width:100%; background-image:url(\1);\' data-mfp-src=\'\1\' data-img-width=\2 data-img-height=\3 data-diff=200></div>')
     new_content.html_safe
   end
+
+  def class_for_post_image
+    klasses = []
+    klasses << 'inverted' if @post.inverted_title
+    klasses << 'photostory' if @post.photostory?
+    klasses
+  end
 end

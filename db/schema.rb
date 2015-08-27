@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824042447) do
+ActiveRecord::Schema.define(version: 20150827055550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20150824042447) do
     t.boolean  "inverted_title",                         default: false, null: false
     t.string   "video_link"
     t.date     "published_at"
+    t.boolean  "photostory",                             default: false, null: false
   end
 
   add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree

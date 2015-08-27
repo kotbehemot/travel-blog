@@ -32,6 +32,11 @@ class PostImagesGallery
         elementParse: (item) ->
           if item.el.prop('tagName') == "IMG" && item.el.attr('src')
             item.src = item.el.attr('src')
+        beforeOpen: () ->
+          $('#photostory-init').remove()
+    $('#photostory-init').on 'click', () ->
+      $('#photostory-init').remove()
+    $('#main-post-image.photostory').click()
 
 $ ->
   new DynamicFacebookComments if $('#post-comments').length > 0

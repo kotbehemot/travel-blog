@@ -1,5 +1,9 @@
 #post-content
-  #main-post-image.image-gallery.post-box.fullscreen.background.parallax{:style => "background-image:url(#{@post.header_image.url});", 'data-img-width' => @post.header_image_width, 'data-img-height' => @post.header_image_height, 'data-diff' => 200, 'data-mfp-src' => @post.header_image.url, :class => "#{'inverted' if @post.inverted_title}"}
+  - if @post.photostory?
+    #photostory-init
+      %span.fa.fa-spinner.fa-pulse
+      .message= t('posts.photostory_initializing')
+  #main-post-image.image-gallery.post-box.fullscreen.background.parallax{:style => "background-image:url(#{@post.header_image.url});", 'data-img-width' => @post.header_image_width, 'data-img-height' => @post.header_image_height, 'data-diff' => 200, 'data-mfp-src' => @post.header_image.url, :class => @post_presenter.class_for_post_image, :title => @post.title}
     .content
       %h1= @post.title
     .scroll-pls
@@ -13,7 +17,7 @@
         = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here') do
           %span.fa.fa-globe
           = @post.place.name
-  = PostContentPresenter.new(@post).content
+  = @post_presenter.content
 
   - unless @post.video_link.blank?
     #post-video
