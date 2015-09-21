@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @location] do |f|
+
+  %fieldset
+    %legend Edit location
+    = f.input :lat, :as => :string, input_html: { class: 'width-50' }
+    = f.input :lon, :as => :string, input_html: { class: 'width-50' }
+    = f.input :emailed_at, :as => :string, input_html: { class: 'width-50' }
+
+  .actions
+    = f.submit 'Save', :class => 'btn btn-big btn-blue'

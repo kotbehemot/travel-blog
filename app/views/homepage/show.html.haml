@@ -12,7 +12,7 @@
     .scroll-pls
       .info= t('homepage.where_are_we')
       %span.fa.fa-angle-double-down
-  #homepage-map.init{'data-locations' => @locations.to_json, :class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
+  #homepage-map.init{:class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
   #homepage-travel-data.units-row
     #homepage-timer.data-section.unit-30{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date')}
       %span.fa.fa-calendar

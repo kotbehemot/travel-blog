@@ -27,50 +27,50 @@ class Homepage
     counter_el.children(".value").html Math.round(1000*proper_km)
 
   init_maps: ->
-    handler = Gmaps.build('Google')
-    handler.buildMap {
-      provider: {
-        mapTypeId: google.maps.MapTypeId.TERRAIN
-        zoomControlOptions:
-          style: google.maps.ZoomControlStyle.LARGE
-        disableDefaultUI: false
-        scrollwheel: false
-      }
-      internal: id: 'homepage-map'
-    }, ->
-      locations = $('#homepage-map').data('locations')
-      map_locations_latest = []
-
-      for location in locations.slice(0,DISPLAY_LATEST_LOCATIONS)
-        map_locations_latest.push {
-          'lat': location.lat
-          'lng': location.lon
-          'infowindow': location.date
-          "picture": {
-            "url": "/images/cycling.png",
-            "width":  32,
-            "height": 37
-          }
+    $.getJSON '/map_locations.json', (locations) ->
+      handler = Gmaps.build('Google')
+      handler.buildMap {
+        provider: {
+          mapTypeId: google.maps.MapTypeId.TERRAIN
+          zoomControlOptions:
+            style: google.maps.ZoomControlStyle.LARGE
+          disableDefaultUI: false
+          scrollwheel: false
         }
-      markers_latest = handler.addMarkers(map_locations_latest)
-      handler.bounds.extendWith(markers_latest)
-      handler.fitMapToBounds()
-      map_locations_earlier = []
-      for location in locations.slice(DISPLAY_LATEST_LOCATIONS)
-        map_locations_earlier.push {
-          'lat': location.lat
-          'lng': location.lon
-          'infowindow': location.date
-          "picture": {
-            "url": "/images/cycling.png",
-            "width":  32,
-            "height": 37
-          }
-        }
-      markers_earlier = handler.addMarkers(map_locations_earlier)
-      handler.bounds.extendWith(markers_earlier)
+        internal: id: 'homepage-map'
+      }, ->
+        map_locations_latest = []
 
-      $('#homepage-map').removeClass('init')
+        for location in locations.slice(0,DISPLAY_LATEST_LOCATIONS)
+          map_locations_latest.push {
+            'lat': location.lat
+            'lng': location.lon
+            'infowindow': location.date
+            "picture": {
+              "url": "/images/cycling.png",
+              "width":  32,
+              "height": 37
+            }
+          }
+        markers_latest = handler.addMarkers(map_locations_latest)
+        handler.bounds.extendWith(markers_latest)
+        handler.fitMapToBounds()
+        map_locations_earlier = []
+        for location in locations.slice(DISPLAY_LATEST_LOCATIONS)
+          map_locations_earlier.push {
+            'lat': location.lat
+            'lng': location.lon
+            'infowindow': location.date
+            "picture": {
+              "url": "/images/cycling.png",
+              "width":  32,
+              "height": 37
+            }
+          }
+        markers_earlier = handler.addMarkers(map_locations_earlier)
+        handler.bounds.extendWith(markers_earlier)
+
+        $('#homepage-map').removeClass('init')
 
 class ImageGallery
 
