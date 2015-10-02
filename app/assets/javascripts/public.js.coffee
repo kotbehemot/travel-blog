@@ -221,3 +221,6 @@ class HiddenEmail
 $ ->
   new StickyNav if $('navigation').length > 0
   new HiddenEmail
+  smoothScroll.init
+    selector: '.fa-angle-double-down'
+    updateURL: false

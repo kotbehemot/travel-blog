@@ -16,6 +16,7 @@
 //= require vendor/kube.min.js
 //= require vendor/moment.min.js
 //= require vendor/magnific_popup.min.js
+//= require vendor/smooth-scroll.min.js
 //= require jquery.infinite-pages
 //= require parallax
 //= require public

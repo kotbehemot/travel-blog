@@ -3,7 +3,7 @@
     %h1
       = t('app_name')
     .scroll-pls
-      %span.fa.fa-angle-double-down
+      %a.fa.fa-angle-double-down{:href => '#homepage-manifest'}
   #homepage-manifest.not-fullscren.parallax.box
     %h2
       %span= t('homepage.manifest1')
@@ -11,7 +11,7 @@
     %h3= t('homepage.subtitle')
     .scroll-pls
       .info= t('homepage.where_are_we')
-      %span.fa.fa-angle-double-down
+      %a.fa.fa-angle-double-down{:href => '#homepage-map'}
   #homepage-map.init{:class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
   #homepage-travel-data.units-row
     #homepage-timer.data-section.unit-30{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date')}
@@ -40,7 +40,7 @@
       km
     .scroll-pls
       .info= t('homepage.whats_up')
-      %span.fa.fa-angle-double-down
+      %a.fa.fa-angle-double-down{:href => '#homepage-latest'}
   - if @latest_post
     #homepage-latest.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@latest_post.header_image.url}\");", 'data-img-width' => @latest_post.header_image_width, 'data-img-height' => @latest_post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @latest_post.inverted_title}"}
       = link_to post_path(@latest_post) do
@@ -51,7 +51,7 @@
       = link_to t('homepage.latest_posts'), latest_posts_path
     .scroll-pls
       .info= t('homepage.post_categories')
-      %span.fa.fa-angle-double-down
+      %a.fa.fa-angle-double-down{:href => '#homepage-posts-categories'}
   %ul#homepage-posts-categories.blocks-4.blocks-mobile-50
 
     - @places.each do |place|

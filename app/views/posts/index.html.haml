@@ -4,7 +4,7 @@
       %h1= link_to t('app_name'), root_path
       %h2= @title
       .scroll-pls
-        %span.fa.fa-angle-double-down
+        %a.fa.fa-angle-double-down{:href => '#posts-endless-list'}
     #posts-endless-list
       = render @posts
     - unless @posts.last_page?
