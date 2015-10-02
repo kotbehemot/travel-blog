@@ -10,7 +10,7 @@ module SpotDropbox
     def run
       message_body = email.attr['BODY[TEXT]']
       message_date = email.attr['INTERNALDATE']
-      coords = /Latitude:(?<lat>[0-9\.]+).+Longitude:(?<lon>[0-9\.]+)/m.match message_body
+      coords = /Latitude:(?<lat>-?[0-9\.]+).+Longitude:(?<lon>-?[0-9\.]+)/m.match message_body
       if coords && coords[:lat] && coords[:lon]
         puts coords[:lat]
         puts coords[:lon]
