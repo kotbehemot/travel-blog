@@ -22,6 +22,9 @@
 en:
   app_name: "Flies in wheels"
   app_language: en_GB
+  locales:
+    pl: Polish
+    en: English
   head:
     keywords: "travel, bike, self-sustained bike journey"
     description: "'If you want to go fast, go alone. If you want to go far, go together' - a blog about our cycling adventure"

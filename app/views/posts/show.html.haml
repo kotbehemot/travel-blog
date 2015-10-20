@@ -17,6 +17,9 @@
         = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here') do
           %span.fa.fa-globe
           = @post.place.name
+  - if @post.place_id && !@post.place.description.blank?
+    #post_place_keywords
+      = @post.place.description
   = @post_presenter.content
 
   - unless @post.video_link.blank?

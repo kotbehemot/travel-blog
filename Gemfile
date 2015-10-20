@@ -6,6 +6,7 @@ gem 'rails', '4.2.0'
 
 gem 'pg'
 gem 'foreigner'
+gem 'globalize', '~> 5.0.0'
 
 gem 'rack-rewrite'
 
@@ -17,17 +18,16 @@ gem 'therubyracer',  platforms: :ruby
 gem 'underscore-rails'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+gem 'jquery-infinite-pages'
 
 gem 'turbolinks'
 gem 'friendly_id'
+gem 'kaminari'
 
 gem 'jbuilder', '~> 2.0'
 gem 'simple_form'
 gem 'ckeditor'
 gem 'acts-as-taggable-on'
-
-gem 'kaminari'
-gem 'jquery-infinite-pages'
 
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'

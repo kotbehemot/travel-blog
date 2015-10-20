@@ -32,6 +32,7 @@ class PostsController < ApplicationController
 
     @title = @post.title
     @description = @post.summary
+    @keywords = @post.place.description if @post.place_id && !@post.place.description.blank?
     @meta_image_url = @post.header_image.url
 
     @next_post = Post.where(:published => true).where(['published_at > ?', @post.published_at]).order('published_at ASC').limit(1).first

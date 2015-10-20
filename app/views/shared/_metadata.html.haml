@@ -4,7 +4,7 @@
 %link{:rel => 'shortcut icon', :href => '/favicon.png'}
 %link{:href => url_for(:host => ENV["CANONICAL_HOST"] || request.host, :only_path => false), :rel => "canonical"}
 
-%meta{:name => 'keywords', :content => t('head.keywords')}
+%meta{:name => 'keywords', :content => @keywords || t('head.keywords')}
 %meta{:name => 'description', :content => @description || t('head.description')}
 %meta{:property => "og:site_name", :content => t('app_name')}
 %meta{:property => "og:title", :content => @title || t('app_name')}

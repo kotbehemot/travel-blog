@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
 
   belongs_to :place
 
+  translates :title, :summary, :content, :fallbacks_for_empty_translations => true
+
   has_attached_file :header_image,
     :styles => { :thumb => '118x100#', :medium => '400x300#', :original => '1600' }
   has_attached_file :footer_image,

@@ -5,6 +5,8 @@ class Place < ActiveRecord::Base
 
   validates :name, :slug, :presence => true
 
+  translates :name, :description, :fallbacks_for_empty_translations => true
+
   def should_generate_new_friendly_id?
     name_changed? || super
   end

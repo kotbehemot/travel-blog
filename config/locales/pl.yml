@@ -22,6 +22,9 @@
 pl:
   app_name: "Muchy w szprychach"
   app_language: pl_PL
+  locales:
+    pl: polski
+    en: angielski
   head:
     keywords: "podróże, rower, dookoła świata"
     description: "'Jeśli chcesz jechać szybko, jedź sam. Jeśli chcesz jechać daleko, jedźmy razem' - czyli blog o naszej rowerowej podróży"

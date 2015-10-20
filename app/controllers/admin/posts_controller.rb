@@ -9,11 +9,14 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def show
+    set_places
     respond_with(@post)
   end
 
   def new
+    render '/admin/shared/invalid_locale' and return if I18n.locale != I18n.default_locale
     @post = Post.new
+    set_places
     respond_with(@post)
   end
 
@@ -36,6 +39,10 @@ class Admin::PostsController < Admin::BaseController
   private
     def set_post
       @post = Post.friendly.find(params[:id])
+    end
+
+    def set_places
+      @places = Place.order(:name).includes(:translations).with_locales(I18n.available_locales)
     end
 
     def permitted_params

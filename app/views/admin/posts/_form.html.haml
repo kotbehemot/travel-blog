@@ -21,7 +21,7 @@
 
   %fieldset
     %legend Associations
-    = f.input :place_id, :collection => Place.order(:name), :prompt => 'Select place'
+    = f.input :place_id, :collection => @places, :prompt => 'Select place'
 
   %fieldset.publish
     %legend Publish and save

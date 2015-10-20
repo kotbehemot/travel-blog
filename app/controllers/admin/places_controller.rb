@@ -14,6 +14,7 @@ class Admin::PlacesController < Admin::BaseController
   end
 
   def new
+    render '/admin/shared/invalid_locale' and return if I18n.locale != I18n.default_locale
     @place = Place.new
     respond_with(@place)
   end
