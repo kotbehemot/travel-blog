@@ -35,7 +35,7 @@ class Post < ActiveRecord::Base
   end
 
   def should_generate_new_friendly_id?
-    title_changed? || super
+    new_record? || super
   end
 
   protected

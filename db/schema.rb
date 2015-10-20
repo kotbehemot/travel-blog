@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020070857) do
+ActiveRecord::Schema.define(version: 20151020114925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,11 +98,9 @@ ActiveRecord::Schema.define(version: 20151020070857) do
   add_index "place_translations", ["place_id"], name: "index_place_translations_on_place_id", using: :btree
 
   create_table "places", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "slug",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug",       null: false
   end
 
   add_index "places", ["slug"], name: "index_places_on_slug", unique: true, using: :btree
@@ -121,15 +119,12 @@ ActiveRecord::Schema.define(version: 20151020070857) do
   add_index "post_translations", ["post_id"], name: "index_post_translations_on_post_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",                                                  null: false
-    t.string   "summary",                   limit: 2048
-    t.text     "content"
     t.integer  "place_id"
-    t.integer  "impressions_count",                      default: 0,     null: false
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
-    t.string   "slug",                                                   null: false
-    t.boolean  "published",                              default: false, null: false
+    t.integer  "impressions_count",         default: 0,     null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.string   "slug",                                      null: false
+    t.boolean  "published",                 default: false, null: false
     t.string   "published_by"
     t.string   "header_image_file_name"
     t.string   "header_image_content_type"
@@ -143,10 +138,10 @@ ActiveRecord::Schema.define(version: 20151020070857) do
     t.integer  "header_image_height"
     t.integer  "footer_image_width"
     t.integer  "footer_image_height"
-    t.boolean  "inverted_title",                         default: false, null: false
+    t.boolean  "inverted_title",            default: false, null: false
     t.string   "video_link"
     t.date     "published_at"
-    t.boolean  "photostory",                             default: false, null: false
+    t.boolean  "photostory",                default: false, null: false
   end
 
   add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree
