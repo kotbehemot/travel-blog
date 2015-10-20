@@ -4,7 +4,8 @@
     %legend Content
     = f.input :title, input_html: { class: 'width-100' }
     = f.input :summary, :as => :text
-    = f.input :content, :as => :ckeditor, :input_html => {:rows => 20}
+    %a#init_ckeditor.btn.btn-blue.right.pause{:href => '#'} Enable Editor
+    = f.input :content, :as => :text, :input_html => {:rows => 4}
 
   %fieldset
     %legend Multimedia
