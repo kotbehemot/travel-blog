@@ -1,4 +1,4 @@
-#post-content{:itemprop => "blogPost", :itemscope => true, :itemtype => "http://schema.org/BlogPosting"}
+#post-content{:itemprop => "blogPost", :itemscope => true, :itemtype => "http://schema.org/BlogPosting", :itemid => request.original_url}
   - if @post.photostory?
     #photostory-init
       %span.fa.fa-spinner.fa-pulse
