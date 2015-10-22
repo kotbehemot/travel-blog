@@ -9,12 +9,15 @@
     .scroll-pls
       %span.fa.fa-angle-double-down
   %meta{:itemprop => "image", :content => @post.header_image.url}
+  %meta{:itemprop => "headline", :content => @post.summary}
   #post-data-header
     %span.published-at{:title => t('posts.show.published_at')}
       %span.fa.fa-calendar-o
       %span{:itemprop => "datePublished"}= @post.published_at
     - unless @post.place.nil?
+      %meta{:itemprop => "keywords", :content => @post.place.description}
       %span
+
         = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here'), :alt => @post.place.description do
           %span.fa.fa-globe
           = @post.place.name
@@ -22,7 +25,7 @@
   = @post_presenter.content
 
   - unless @post.video_link.blank?
-    #post-video{:itemprop => "video", :itemscope => true, :itemtype => "http://schema.org/VideoObject"}
+    #post-video
       %iframe.yt-video{:src => @post.video_link, :frameborder => 0, :allowfullsreen => true}
     }
 
