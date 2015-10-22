@@ -5,7 +5,7 @@
 
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
-  %body
+  %body{:itemscope => true, :itemtype => "http://schema.org/Blog"}
     = render 'shared/fb_app'
     = render 'shared/navigation'
     = yield

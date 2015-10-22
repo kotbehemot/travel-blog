@@ -1,17 +1,18 @@
-#post-content
+#post-content{:itemprop => "blogPost", :itemscope => true, :itemtype => "http://schema.org/BlogPosting"}
   - if @post.photostory?
     #photostory-init
       %span.fa.fa-spinner.fa-pulse
       .message= t('posts.photostory_initializing')
   #main-post-image.image-gallery.post-box.fullscreen.background.parallax{:style => "background-image:url(#{@post.header_image.url});", 'data-img-width' => @post.header_image_width, 'data-img-height' => @post.header_image_height, 'data-diff' => 200, 'data-mfp-src' => @post.header_image.url, :class => @post_presenter.class_for_post_image, :title => @post.title}
     .content
-      %h1= @post.title
+      %h1{:itemprop => "name"}= @post.title
     .scroll-pls
       %span.fa.fa-angle-double-down
+  %meta{:itemprop => "image", :content => @post.header_image.url}
   #post-data-header
     %span.published-at{:title => t('posts.show.published_at')}
       %span.fa.fa-calendar-o
-      = @post.published_at
+      %span{:itemprop => "datePublished"}= @post.published_at
     - unless @post.place.nil?
       %span
         = link_to placed_posts_path(:place => @post.place.slug), :title => t('posts.show.more_from_here'), :alt => @post.place.description do
@@ -21,8 +22,9 @@
   = @post_presenter.content
 
   - unless @post.video_link.blank?
-    #post-video
+    #post-video{:itemprop => "video", :itemscope => true, :itemtype => "http://schema.org/VideoObject"}
       %iframe.yt-video{:src => @post.video_link, :frameborder => 0, :allowfullsreen => true}
+    }
 
   = render 'shared/fb_comments'
 
@@ -64,7 +66,5 @@
 
   - if @post.footer_image_defined?
     #footer-post-image.image-gallery.fullscreen.background.parallax{:style => "background-image:url(\"#{@post.footer_image.url}\");", 'data-img-width' => @post.footer_image_width, 'data-img-height' => @post.footer_image_height, 'data-diff' => 200, 'data-mfp-src' => @post.footer_image.url}
-
-
 
   = render 'shared/footer'
