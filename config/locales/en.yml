@@ -39,7 +39,6 @@ en:
     start_date: "We started our journey in Warsaw in April 21st, 2015"
     counter_disclaimer: "It loks like we're moving even when asleep!"
     timer_description: "days on the road"
-    rocket_description: "wait for it..."
   posts:
     latest:
       title: What's new?
