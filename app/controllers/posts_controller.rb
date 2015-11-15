@@ -19,8 +19,8 @@ class PostsController < ApplicationController
     end
     @title ||= I18n.t('posts.latest.title')
     if @posts.empty?
-      @posts = Post.published.page(params[:page]).per(6)
-      @description = I18n.t('posts.latest.bad_tag', :tag => params[:place] || params[:tag])
+      redirect_to latest_posts_path
+      return
     end
     @places = Place.all
     @post_photos = @posts.map {|p| p.header_image.url }
