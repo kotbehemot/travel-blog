@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     end
     @title ||= I18n.t('posts.latest.title')
     if @posts.empty?
-      @posts = Post.published.page(:params[:page]).per(6)
+      @posts = Post.published.page(params[:page]).per(6)
       @description = I18n.t('posts.latest.bad_tag', :tag => params[:place] || params[:tag])
     end
     @places = Place.all
