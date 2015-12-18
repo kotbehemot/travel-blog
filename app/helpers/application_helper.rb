@@ -16,7 +16,16 @@ module ApplicationHelper
   end
 
   def switch_locale_link
-    new_locale = (I18n.locale.to_s == 'pl' ? 'en' : 'pl')
-    link_to(new_locale, {:locale => new_locale})
+    new_locale = alternate_locale
+    link_to(new_locale, alternate_locale_url)
+  end
+
+  def alternate_locale_url(options = {})
+    new_locale = alternate_locale
+    url_for(options.merge({:locale => new_locale}))
+  end
+
+  def alternate_locale
+    I18n.locale.to_s == 'pl' ? 'en' : 'pl'
   end
 end

@@ -16,3 +16,7 @@
 %meta{:property => "og:image", :content => @meta_image_url || @main_photo.try(:image).try(:url) || "http://#{request.host}/images/bg/home.jpg"}
 %meta{:property => "og:type", :content => page_type}
 %meta{:property => "og:url", :content => url_for(:host => ENV["CANONICAL_HOST"] || request.host, :only_path => false)}
+
+%link{:rel => "alternate", :hreflang => I18n.locale.to_s, :href => url_for(:only_path => false)}
+%link{:rel => "alternate", :hreflang => alternate_locale, :href => alternate_locale_url(:only_path => false)}
+
