@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   scope "(:locale)", locale: /en/, constraints: {locale: /en/} do
+    get 's/:special' => 'posts#index', :as => :specific_posts
     get 'm/:place' => 'posts#index', :as => :placed_posts
     get 't/:tag' => 'posts#index', :as => :tagged_posts
     get 'm/:place/:id' => 'posts#show', :as => :placed_post

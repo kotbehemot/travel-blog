@@ -20,8 +20,8 @@
         display: block
         line-height: 1.4em
 
-  #homepage-post-list, #homepage-posts-categories
-    .homepage-place-link
+  #homepage-post-list, #homepage-posts-categories, #homepage-posts-specials
+    .homepage-place-link, .homepage-special-link
       font-size: 1.7em
       height: 2em
       background-repeat: no-repeat
@@ -50,16 +50,23 @@
     #homepage-all-posts-link
       min-width: 12em
       width: 47%
-      margin: 0 auto 4em auto
+      margin: 0 auto 0.4em auto
       background-image: url('/images/gray_dot.png')
       +transition(background-position 1s ease)
       a
         +transition(color 0s ease 0.3s)
-
-
+    #homepage-posts-specials
+      padding: 1em
+      .homepage-special-link
+        background-image: url('/images/gray_dot.png')
+        font-size: 1.3em
 
   #homepage-posts-categories
     padding: 1em
+    overflow: hidden
+
+  #homepage-posts-specials
+    padding-right: 1em
     overflow: hidden
 
   #homepage-travel-data

@@ -55,6 +55,10 @@ en:
     video_content: 'Contains video content.'
     is_photostory: 'Photostory'
     photostory_initializing: 'Loading photostory'
+    specials:
+      letter: Letters of travel
+      photostory: Photostories
+      movie: Movies
     show:
       top: Top
       back_to_list: Posts list

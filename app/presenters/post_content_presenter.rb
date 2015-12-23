@@ -19,4 +19,8 @@ class PostContentPresenter
     klasses << 'photostory' if @post.photostory?
     klasses
   end
+
+  def font_class
+    @post.s_letter ? 'letter' : 'regular'
+  end
 end

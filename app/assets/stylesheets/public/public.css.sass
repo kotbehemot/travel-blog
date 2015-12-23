@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Marck+Script&subset=latin-ext,latin)
 @import variables
 @import vendor/magnific_popup
 @import parallax
@@ -25,19 +26,26 @@ body
   @media (max-width: $break-tiny)
     font-size: 12px
 
-  h1
+  h1, .title-prefix
     color: $inverted-text-color
-    font-size: 3.8em
-    text-transform: uppercase
     text-align: right
-    margin: 0.5em
     text-shadow: 0 0 2px #88a
-    letter-spacing: -2px
     a
       color: $inverted-text-color
       text-decoration: none
       &:hover
         color: $inverted-text-color
+
+  h1
+    text-transform: uppercase
+    font-size: 3.8em
+    margin: 0.5em
+    letter-spacing: -2px
+
+
+  .title-prefix
+    font-size: 1.3em
+    margin: 1.4em 1.4em -1.4em 0
 
   h2
     text-transform: uppercase

@@ -44,11 +44,26 @@
   - if @latest_post
     #homepage-latest.post-box.fullscreen.background.parallax{:style => "background-image:url(\"#{@latest_post.header_image.url}\");", 'data-img-width' => @latest_post.header_image_width, 'data-img-height' => @latest_post.header_image_height, 'data-diff' => 200, :class => "#{'inverted' if @latest_post.inverted_title}"}
       = link_to post_path(@latest_post) do
+        - if @latest_post.s_letter
+          .title-prefix= t('posts.specials.letter')
         %h2= @latest_post.title
         .post-summary= @latest_post.summary
   #homepage-post-list
     #homepage-all-posts-link.homepage-place-link
       = link_to t('homepage.latest_posts'), latest_posts_path
+    %ul#homepage-posts-specials.blocks-3.blocks-mobile-50
+      %li.homepage-special-link
+        = link_to specific_posts_path(:special => 'movie') do
+          %span.fa.fa-video-camera
+          = t('posts.specials.movie')
+      %li.homepage-special-link
+        = link_to specific_posts_path(:special => 'photostory') do
+          %span.fa.fa-camera
+          = t('posts.specials.photostory')
+      %li.homepage-special-link
+        = link_to specific_posts_path(:special => 'letter') do
+          %span.fa.fa-envelope
+          = t('posts.specials.letter')
     .scroll-pls
       .info= t('homepage.post_categories')
       %a.fa.fa-angle-double-down{:href => '#homepage-posts-categories'}

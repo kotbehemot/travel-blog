@@ -55,6 +55,10 @@ pl:
     error_loading_next_page: 'Błąd ładowania kolejnych postów.'
     is_photostory: 'Galeria zdjęć'
     photostory_initializing: 'Ładuję galerię zdjęć'
+    specials:
+      letter: Listy z podróży
+      photostory: Galerie zdjęć
+      movie: Filmy
     show:
       top: Do góry
       back_to_list: Wszystkie wpisy

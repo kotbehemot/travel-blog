@@ -1,10 +1,12 @@
-#post-content{:itemprop => "blogPost", :itemscope => true, :itemtype => "http://schema.org/BlogPosting", :itemid => request.original_url}
+#post-content{:class => @post_presenter.font_class, :itemprop => "blogPost", :itemscope => true, :itemtype => "http://schema.org/BlogPosting", :itemid => request.original_url}
   - if @post.photostory?
     #photostory-init
       %span.fa.fa-spinner.fa-pulse
       .message= t('posts.photostory_initializing')
   #main-post-image.image-gallery.post-box.fullscreen.background.parallax{:style => "background-image:url(#{@post.header_image.url});", 'data-img-width' => @post.header_image_width, 'data-img-height' => @post.header_image_height, 'data-diff' => 200, 'data-mfp-src' => @post.header_image.url, :class => @post_presenter.class_for_post_image, :title => @post.title}
     .content
+      - if @post.s_letter
+        .title-prefix= t('posts.specials.letter')
       %h1{:itemprop => "name"}= @post.title
     .scroll-pls
       %span.fa.fa-angle-double-down
