@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   def alternate_locale_url(options = {})
-    new_locale = alternate_locale
+    new_locale = I18n.locale.to_s == 'pl' ? 'en' : nil
     url_for(options.merge({:locale => new_locale}))
   end
 
