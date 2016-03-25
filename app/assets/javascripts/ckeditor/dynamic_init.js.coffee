@@ -1,6 +1,5 @@
 class DynamicCKEditor
   constructor: ->
-    console.log 'i'
     $('#init_ckeditor').on 'click', (event) =>
       event.preventDefault()
       $('#init_ckeditor').remove()

@@ -28,7 +28,7 @@
 
   - unless @post.video_link.blank?
     #post-video
-      %iframe.yt-video{:src => @post.video_link, :frameborder => 0, :allowfullsreen => true}
+      %iframe.yt-video{:src => @post.video_link, :frameborder => 0, :allowfullsreen => true, :modestbranding => 1, :hl => t('app_language')}
 
   = render 'shared/fb_comments'
 
