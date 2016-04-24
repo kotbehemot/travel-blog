@@ -30,33 +30,7 @@ class Homepage
 
   init_maps: ->
     $.getJSON '/map_locations.json', (locations) ->
-      base_url = "http://gmaps-utility-library.googlecode.com/svn/trunk/markerclusterer/1.0/images/";
-      handler = Gmaps.build(
-        "Google"
-        markers:
-          clusterer:
-            gridSize: 40
-            maxZoom: 10
-            styles: [
-              textSize: 1
-              textColor: '#ffffff'
-              url: '/images/gray_dot.png'
-              height: 1
-              width: 1
-            ,
-              textSize: 1
-              textColor: '#ffffff'
-              url: '/images/gray_dot.png'
-              height: 1
-              width: 1
-            ,
-             textSize: 1
-             textColor: '#ffffff'
-             url: '/images/gray_dot.png'
-             width: 1
-             height: 1
-            ]
-      )
+      handler = Gmaps.build("Google")
       handler.buildMap {
         provider: {
           mapTypeId: google.maps.MapTypeId.TERRAIN
