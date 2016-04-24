@@ -3,7 +3,7 @@ class Homepage
   DEFAULT_DAILY_DISTANCE = 40
   DISPLAY_LATEST_LOCATIONS = 6
   POLYLINES_COLOURS = ['#8899FF', '#FF9933', '#669999', '#CCCCCC', '#66BB66']
-  POLYLINES_OPACITIES = [0.8, 0.7, 0.6, 0.5, 0.7]
+  POLYLINES_OPACITIES = [0.8, 0.7, 0.6, 0.6, 0.7]
 
   constructor: ->
     @set_counter()
@@ -11,7 +11,7 @@ class Homepage
     setInterval =>
       @set_bike_odo()
     , 1000
-    @init_maps() unless $('#homepage-map').hasClass('no-init')
+    @init_maps() #unless $('#homepage-map').hasClass('no-init')
 
   set_counter: ->
     timer_el = $('#homepage-timer')
@@ -74,12 +74,12 @@ class Homepage
 
         previous_point = null
         for location in locations
-          if previous_point
+          if previous_point?
             polylines = handler.addPolylines(
-              [ [ {lat: previous_point.lat, lng: previous_point.lon}, {lat: location.lat, lng: location.lon} ] ],
-              strokeColor: POLYLINES_COLOURS[location.vehicle_type],
+              [ [ {lat: location.lat, lng: location.lon}, {lat: previous_point.lat, lng: previous_point.lon} ] ],
+              strokeColor: POLYLINES_COLOURS[previous_point.vehicle_type],
               geodesic: true,
-              strokeOpacity: POLYLINES_OPACITIES[location.vehicle_type]
+              strokeOpacity: POLYLINES_OPACITIES[previous_point.vehicle_type]
             )
           previous_point = location
 
