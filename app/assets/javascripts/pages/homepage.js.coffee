@@ -2,8 +2,8 @@ class Homepage
 
   DEFAULT_DAILY_DISTANCE = 40
   DISPLAY_LATEST_LOCATIONS = 6
-  POLYLINES_COLOURS = ['#8899FF', '#FF9933', '#669999', '#CCCCCC', '#66BB66']
-  POLYLINES_OPACITIES = [0.8, 0.7, 0.6, 0.6, 0.7]
+  POLYLINES_COLOURS = ['#8899FF', '#FF9933', '#337777', '#CCCCCC', '#66BB66']
+  POLYLINES_OPACITIES = [0.9, 0.7, 0.7, 0.6, 0.8]
 
   constructor: ->
     @set_counter()
