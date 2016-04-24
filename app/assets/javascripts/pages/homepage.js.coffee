@@ -30,7 +30,33 @@ class Homepage
 
   init_maps: ->
     $.getJSON '/map_locations.json', (locations) ->
-      handler = Gmaps.build('Google')
+      base_url = "http://gmaps-utility-library.googlecode.com/svn/trunk/markerclusterer/1.0/images/";
+      handler = Gmaps.build(
+        "Google"
+        markers:
+          clusterer:
+            gridSize: 40
+            maxZoom: 10
+            styles: [
+              textSize: 1
+              textColor: '#ffffff'
+              url: '/images/gray_dot.png'
+              height: 1
+              width: 1
+            ,
+              textSize: 1
+              textColor: '#ffffff'
+              url: '/images/gray_dot.png'
+              height: 1
+              width: 1
+            ,
+             textSize: 1
+             textColor: '#ffffff'
+             url: '/images/gray_dot.png'
+             width: 1
+             height: 1
+            ]
+      )
       handler.buildMap {
         provider: {
           mapTypeId: google.maps.MapTypeId.TERRAIN
@@ -49,7 +75,7 @@ class Homepage
             'lng': location.lon
             'infowindow': location.date
             "picture": {
-              "url": "/images/location_icons/icon#{location.vehicle_type}.png",
+              "url": "/images/cycling.png",
               "width":  32,
               "height": 37
             }
@@ -64,7 +90,7 @@ class Homepage
             'lng': location.lon
             'infowindow': location.date
             "picture": {
-              "url": "/images/location_icons/icon#{location.vehicle_type}.png",
+              "url": "/images/cycling.png",
               "width":  32,
               "height": 37
             }
@@ -75,8 +101,8 @@ class Homepage
         previous_point = null
         for location in locations
           if previous_point?
-            polylines = handler.addPolylines(
-              [ [ {lat: location.lat, lng: location.lon}, {lat: previous_point.lat, lng: previous_point.lon} ] ],
+            polylines = handler.addPolyline(
+              [ {lat: location.lat, lng: location.lon}, {lat: previous_point.lat, lng: previous_point.lon} ],
               strokeColor: POLYLINES_COLOURS[previous_point.vehicle_type],
               geodesic: true,
               strokeOpacity: POLYLINES_OPACITIES[previous_point.vehicle_type]
@@ -84,8 +110,6 @@ class Homepage
           previous_point = location
 
         handler.bounds.extendWith(polylines)
-
-
 
         $('#homepage-map').removeClass('init')
 
