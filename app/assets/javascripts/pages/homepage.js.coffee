@@ -70,6 +70,22 @@ class Homepage
         markers_earlier = handler.addMarkers(map_locations_earlier)
         handler.bounds.extendWith(markers_earlier)
 
+        pointsForPolyline = []
+        for location in locations
+          pointsForPolyline.push {
+            lat: location.lat
+            lng: location.lon
+          }
+
+        polyline = handler.addPolylines(
+          [ pointsForPolyline ],
+          strokeColor: '#8899FF',
+          geodesic: true,
+          strokeOpacity: 0.6
+        )
+
+        handler.bounds.extendWith(polyline)
+
         $('#homepage-map').removeClass('init')
 
 class ImageGallery
