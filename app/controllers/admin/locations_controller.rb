@@ -40,6 +40,6 @@ class Admin::LocationsController < Admin::BaseController
   end
 
   def permitted_params
-    params.require(:location).permit(:lat, :lon, :emailed_at)
+    params.require(:location).permit(:lat, :lon, :emailed_at, :image, :vehicle_type, :title, :description)
   end
 end

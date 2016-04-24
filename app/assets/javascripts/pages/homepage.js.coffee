@@ -2,6 +2,8 @@ class Homepage
 
   DEFAULT_DAILY_DISTANCE = 40
   DISPLAY_LATEST_LOCATIONS = 6
+  POLYLINES_COLOURS = ['#8899FF', '#FF9933', '#669999', '#CCCCCC', '#66BB66']
+  POLYLINES_OPACITIES = [0.8, 0.7, 0.6, 0.5, 0.7]
 
   constructor: ->
     @set_counter()
@@ -47,7 +49,7 @@ class Homepage
             'lng': location.lon
             'infowindow': location.date
             "picture": {
-              "url": "/images/cycling.png",
+              "url": "/images/location_icons/icon#{location.vehicle_type}.png",
               "width":  32,
               "height": 37
             }
@@ -62,7 +64,7 @@ class Homepage
             'lng': location.lon
             'infowindow': location.date
             "picture": {
-              "url": "/images/cycling.png",
+              "url": "/images/location_icons/icon#{location.vehicle_type}.png",
               "width":  32,
               "height": 37
             }
@@ -70,21 +72,20 @@ class Homepage
         markers_earlier = handler.addMarkers(map_locations_earlier)
         handler.bounds.extendWith(markers_earlier)
 
-        pointsForPolyline = []
+        previous_point = null
         for location in locations
-          pointsForPolyline.push {
-            lat: location.lat
-            lng: location.lon
-          }
+          if previous_point
+            polylines = handler.addPolylines(
+              [ [ {lat: previous_point.lat, lng: previous_point.lon}, {lat: location.lat, lng: location.lon} ] ],
+              strokeColor: POLYLINES_COLOURS[location.vehicle_type],
+              geodesic: true,
+              strokeOpacity: POLYLINES_OPACITIES[location.vehicle_type]
+            )
+          previous_point = location
 
-        polyline = handler.addPolylines(
-          [ pointsForPolyline ],
-          strokeColor: '#8899FF',
-          geodesic: true,
-          strokeOpacity: 0.6
-        )
+        handler.bounds.extendWith(polylines)
 
-        handler.bounds.extendWith(polyline)
+
 
         $('#homepage-map').removeClass('init')
 

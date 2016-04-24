@@ -1,10 +1,19 @@
 = simple_form_for [:admin, @location] do |f|
 
   %fieldset
-    %legend Edit location
+    %legend Required data
     = f.input :lat, :as => :string, input_html: { class: 'width-50' }
     = f.input :lon, :as => :string, input_html: { class: 'width-50' }
     = f.input :emailed_at, :as => :string, input_html: { class: 'width-50' }
+
+  %fieldset
+    %legend Additional content
+    = f.input :title, input_html: { class: 'width-100' }
+    = f.input :description, :as => :text
+    = f.input :vehicle_type, collection: [['bike', 0], ['car', 1], ['boat', 2], ['plane', 3], ['train', 4]], prompt: false, input_html: { class: 'width-50' }
+    - if @location.image.file?
+      .input-image-preview= image_tag @location.image.url(:thumb)
+    = f.input :image
 
   .actions
     = f.submit 'Save', :class => 'btn btn-big btn-blue'
