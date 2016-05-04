@@ -4,7 +4,7 @@ class Location < ActiveRecord::Base
 
   validates :lat, :lon, :emailed_at, :presence => true
 
-  scope :safe, -> { where(["emailed_at < ?", Time.now - 20.hours]) }
+  scope :safe, -> { where(["emailed_at < ?", Time.now - 4.hours]) }
 
   has_attached_file :image,
     :styles => { :thumb => '118x100#', :medium => '400x300#', :original => '1600' }
