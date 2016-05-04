@@ -7,7 +7,15 @@ class HomepageController < ApplicationController
   end
 
   def map_locations
-    @locations = Location.safe.order('emailed_at DESC').map {|l| {:lat => l.lat, :lon => l.lon, :date => l.emailed_at.to_s(:short), :vehicle_type => l.vehicle_type} }
+    @locations = Location.safe.order('emailed_at DESC').map {|l| {
+      :lat => l.lat,
+      :lon => l.lon,
+      :title => l.title,
+      :date => l.emailed_at.to_s(:short),
+      :description => l.description,
+      :image => (l.image.file? ? l.image.url(:thumb) : nil),
+      :vehicle_type => l.vehicle_type
+    }}
     render :json => @locations
   end
 
