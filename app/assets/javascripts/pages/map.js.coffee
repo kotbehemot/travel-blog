@@ -23,11 +23,16 @@ class Map
         internal: id: 'homepage-map'
       }, ->
         marker_object = (location) ->
+          info = "<i>#{location.date}</i>"
+          if location.title?
+            info = "<h4>#{location.title}</h4><i>#{location.date}</i>"
+          if location.description?
+            info = info.concat "<p>#{location.description}</p>"
           {
             'lat': location.lat
             'lng': location.lon
             'title': location.title
-            'infowindow': "<h4>#{location.title}</h4><i>#{location.date}</i><p>#{location.description}</p>"
+            'infowindow': info
             "picture": {
               "url": "/images/cycling.png",
               "width":  32,
