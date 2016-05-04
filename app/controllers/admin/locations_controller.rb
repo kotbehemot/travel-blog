@@ -26,7 +26,16 @@ class Admin::LocationsController < Admin::BaseController
 
   def update
     @location.update(permitted_params)
-    respond_with(@location, :action => :show, :location => admin_locations_path)
+    if params[:commit] == 'Save and edit next'
+      @next_location = Location.order(:emailed_at).where(["emailed_at > ?", @location.emailed_at]).limit(1).first
+    elsif params[:commit] == 'Save and edit previous'
+      @next_location = Location.order('emailed_at DESC').where(["emailed_at < ?", @location.emailed_at]).limit(1).first
+    end
+    if @next_location
+      respond_with(@location, :action => :show, :location => admin_location_path(@next_location))
+    else
+      respond_with(@location, :action => :show, :location => admin_locations_path)
+    end
   end
 
   def destroy
