@@ -21,7 +21,8 @@
 
 en:
   app_name: "Flies in wheels"
-  app_language: en_GB
+  app_language: en
+  app_language_long: en_GB
   locales:
     pl: Polish
     en: English

@@ -21,7 +21,8 @@
 
 pl:
   app_name: "Muchy w szprychach"
-  app_language: pl_PL
+  app_language: pl
+  app_language_long: pl_PL
   locales:
     pl: polski
     en: angielski
