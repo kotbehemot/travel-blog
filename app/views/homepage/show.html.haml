@@ -75,5 +75,5 @@
   = render 'shared/fb_like_page' unless Rails.env.development?
   = render 'shared/footer'
   - content_for :javascripts do
-    = javascript_include_tag "//maps.google.com/maps/api/js?v=3.18&client=&key=&libraries=geometry&language=&hl=&region="
+    = javascript_include_tag "//maps.google.com/maps/api/js?v=3.23&key=#{Rails.application.secrets.google_maps_api_key}&libraries=geometry&language=#{t('app_language')}&hl=#{t('app_language')}&region="
     = javascript_include_tag "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
