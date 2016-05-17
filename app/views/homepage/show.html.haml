@@ -12,7 +12,7 @@
     .scroll-pls
       .info= t('homepage.where_are_we')
       %a.fa.fa-angle-double-down{:href => '#homepage-map'}
-  #homepage-map.init{:class => "#{'no-init' if Rails.env.development?}"} Loading Google Maps...
+  #homepage-map.init{:class => "#{'no-init' unless Rails.configuration.x.load_google_maps}"} Loading Google Maps...
   #homepage-travel-data.units-row
     #homepage-timer.data-section.unit-30{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date')}
       %span.fa.fa-calendar
@@ -74,6 +74,7 @@
         = link_to place.name, placed_posts_path(:place => place.slug)
   = render 'shared/fb_like_page' unless Rails.env.development?
   = render 'shared/footer'
-  - content_for :javascripts do
-    = javascript_include_tag "//maps.google.com/maps/api/js?v=3.23&key=#{Rails.application.secrets.google_maps_api_key}&libraries=geometry&language=#{t('app_language')}&hl=#{t('app_language')}&region="
-    = javascript_include_tag "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
+  - if Rails.configuration.x.load_google_maps
+    - content_for :javascripts do
+      = javascript_include_tag "//maps.google.com/maps/api/js?v=3.23&key=#{Rails.application.secrets.google_maps_api_key}&libraries=geometry&language=#{t('app_language')}&hl=#{t('app_language')}&region="
+      = javascript_include_tag "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
