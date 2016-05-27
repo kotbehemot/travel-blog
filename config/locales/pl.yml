@@ -34,11 +34,11 @@ pl:
     manifest2: "Jeśli chcesz jechać daleko, jedźmy razem."
     subtitle: "czyli blog o naszej rowerowej podróży"
     whats_up: "Co u nas?"
-    where_are_we: "Gdzie jesteśmy?"
-    post_categories: "Gdzie byliśmy?"
+    where_are_we: "Gdzie byliśmy?"
+    post_categories: "wpisy z poszczególnych krajów"
     latest_posts: "Wszystkie wpisy"
     start_date: "Wyruszyliśmy z Warszawy 21 kwietnia 2015 roku"
-    counter_disclaimer: "Wygląda na to, że poruszamy się nawet, kiedy śpimy!"
+    counter_disclaimer: ""
     timer_description: "dni w trasie"
   posts:
     latest:

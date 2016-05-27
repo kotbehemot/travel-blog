@@ -14,14 +14,14 @@
       %a.fa.fa-angle-double-down{:href => '#homepage-map'}
   #homepage-map.init{:class => "#{'no-init' unless Rails.configuration.x.load_google_maps}"} Loading Google Maps...
   #homepage-travel-data.units-row
-    #homepage-timer.data-section.unit-30{'data-when' => '2015-04-21 21:26', :title => t('homepage.start_date')}
+    #homepage-timer.data-section.unit-30{'data-days' => HomepageSetting.value(:days), 'data-when' => HomepageSetting.by_slug(:days).updated_at.strftime("%Y-%m-%d %H:%M"), :title => t('homepage.start_date')}
       %span.fa.fa-calendar
-      %span.value
+      %span.value= HomepageSetting.value(:days)
       = t('homepage.timer_description')
     #homepage-odometer-bike.data-section.unit-30{'data-km' => HomepageSetting.value(:odometer_bike), 'data-when' => HomepageSetting.by_slug(:odometer_bike).updated_at.strftime("%Y-%m-%d %H:%M"), :title => t('homepage.counter_disclaimer')}
       %span.fa.fa-bicycle
-      %span.value
-      m
+      %span.value= HomepageSetting.value(:odometer_bike)
+      %span.unit km
     #homepage-odometer-car.data-section.unit-30
       %span.fa.fa-car
       %span.value= HomepageSetting.value(:odometer_car)

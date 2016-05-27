@@ -34,11 +34,11 @@ en:
     manifest2: "If you want to go far, go together."
     subtitle: "a blog about our cycling adventure"
     whats_up: "what's up? (we write in Polish, sorry)"
-    where_are_we: "where are we?"
-    post_categories: "where have we been?"
+    where_are_we: "where have we been?"
+    post_categories: "visited countries"
     latest_posts: "See all our posts"
     start_date: "We started our journey in Warsaw in April 21st, 2015"
-    counter_disclaimer: "It loks like we're moving even when asleep!"
+    counter_disclaimer: ""
     timer_description: "days on the road"
   posts:
     latest:

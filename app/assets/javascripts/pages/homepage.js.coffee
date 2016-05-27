@@ -1,4 +1,4 @@
-class Homepage
+class HomepageCounters
 
   DEFAULT_DAILY_DISTANCE = 40
 
@@ -12,9 +12,11 @@ class Homepage
   set_counter: ->
     timer_el = $('#homepage-timer')
     that_moment = moment timer_el.data('when')
+    days_earlier = timer_el.data('days')
     diff = moment().diff(that_moment)/1000
     days = Math.ceil(diff/(60*60*24))
-    timer_el.children(".value").html days
+    total_days = +days_earlier + days
+    timer_el.children(".value").html total_days
 
   set_bike_odo: ->
     counter_el = $('#homepage-odometer-bike')
@@ -23,6 +25,7 @@ class Homepage
     diff = moment().diff(odo_moment)/1000
     proper_km = +km + diff*DEFAULT_DAILY_DISTANCE/(24*60*60)
     counter_el.children(".value").html Math.round(1000*proper_km)
+    counter_el.children(".unit").html 'm'
 
 class ImageGallery
 
@@ -59,5 +62,6 @@ class ImageGallery
     img.src = image_src
 
 $ ->
-  new Homepage if $('#homepage').length > 0
+  # homepage counters disabled due to blog freeze (end of journey)
+  # new HomepageCounters if $('#homepage').length > 0
   new ImageGallery if $('.image-gallery').length > 0
