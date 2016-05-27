@@ -18,7 +18,7 @@
       %span.fa.fa-calendar
       %span.value= HomepageSetting.value(:days)
       = t('homepage.timer_description')
-    #homepage-odometer-bike.data-section.unit-30{'data-km' => HomepageSetting.value(:odometer_bike), 'data-when' => HomepageSetting.by_slug(:odometer_bike).updated_at.strftime("%Y-%m-%d %H:%M"), :title => t('homepage.counter_disclaimer')}
+    #homepage-odometer-bike.data-section.unit-30{'data-km' => HomepageSetting.value(:odometer_bike), 'data-when' => HomepageSetting.by_slug(:odometer_bike).updated_at.strftime("%Y-%m-%d %H:%M")}
       %span.fa.fa-bicycle
       %span.value= HomepageSetting.value(:odometer_bike)
       %span.unit km
