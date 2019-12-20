@@ -38,11 +38,27 @@ GEM
     acts-as-taggable-on (5.0.0)
       activerecord (>= 4.2.8)
     arel (6.0.4)
+    aws-eventstream (1.0.3)
+    aws-partitions (1.258.0)
     aws-sdk (1.67.0)
       aws-sdk-v1 (= 1.67.0)
+    aws-sdk-core (3.86.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.27.0)
+      aws-sdk-core (~> 3, >= 3.71.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.60.1)
+      aws-sdk-core (~> 3, >= 3.83.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
     aws-sdk-v1 (1.67.0)
       json (~> 1.4)
       nokogiri (~> 1)
+    aws-sigv4 (1.1.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
     builder (3.2.4)
     ckeditor (4.3.0)
       orm_adapter (~> 0.5.0)
@@ -86,6 +102,7 @@ GEM
       nokogiri (~> 1)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    jmespath (1.4.0)
     jquery-infinite-pages (0.2.0)
       coffee-script
       jquery-rails
@@ -221,6 +238,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   aws-sdk (< 2.0)
+  aws-sdk-s3
   ckeditor (= 4.3.0)
   coffee-rails (~> 4.0.0)
   font-awesome-rails
