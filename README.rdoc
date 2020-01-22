@@ -1,6 +1,7 @@
 == Travel Blog
 
-A code base for my travel blog, which I plan to launch in spring 2015. More details soon.
+A code base for my travel blog, which has been launched in 2015.
+Visit http://muchywszprychach.pl/ to see it in action.
 
 It's a simple blog tailored directly to my needs. 
 * developed with maximum ease of deploy and use in mind
@@ -8,12 +9,13 @@ It's a simple blog tailored directly to my needs.
 * in-text images support
 * tagging and categorization capability
 * built-in statistics tools 
+* multilanguage support, UI optimised for English and Polish
 
 It only supports basic authentication for one user atm, but adding a more sophisticated authentication mechanism (like Device) should be a no brainer if you need it.
 
 You're welcome to fork the project and modify whatever you want, but keep in mind that this software:
 * won't be usefull for everybody
-* has fixed views and styles
+* has some fixed views and styles
 * requires at least basic coding skills to customize
 
 
